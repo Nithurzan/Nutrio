@@ -1,0 +1,6 @@
+admin\node_modules
+server\.vscode
+client\node_modules
+client\.vscode
+.vscode
+/server/node_modules

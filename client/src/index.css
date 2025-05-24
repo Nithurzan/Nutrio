@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .primary-btn{
+        @apply bg-accent text-white font-semibold py-3 px-6 rounded-xl shadow-[0px_10px_14px_-7px_#FFC107] hover:!scale-110 duration-300
+    }
+    .dark .primary-btn {
+        @apply bg-secondary text-gray-900 shadow-[0px_10px_14px_-7px_#4CAF50];
+    }
+
+    .secondary-btn {
+         @apply items-center gap-3 px-8 py-3 rounded-xl bg-gradient-to-r from-primary/90 to-secondary/90 text-white font-bold shadow-xl hover:from-secondary hover:to-primary hover:scale-105 transition-all duration-300 border-none mt-12;
+    }
+    
+}
+
+
+@layer utilities{
+    .drop-shadow{
+        filter: drop-shadow(-6px 8px 15px rgba(0, 0, 0, 0.2));
+    }
+}
