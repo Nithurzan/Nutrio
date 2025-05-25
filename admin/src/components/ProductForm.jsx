@@ -28,11 +28,17 @@ const ProductForm = ({
   const [image4, setImage4] = useState(false);
 
   const [name, setName] = useState(initialValues.name || "");
-  const [productInfo, setProductInfo] = useState(initialValues.productInfo || "");
-  const [description, setDescription] = useState(initialValues.description || "");
+  const [productInfo, setProductInfo] = useState(
+    initialValues.productInfo || ""
+  );
+  const [description, setDescription] = useState(
+    initialValues.description || ""
+  );
   const [price, setPrice] = useState(initialValues.price || "");
   const [category, setCategory] = useState(initialValues.category || "");
-  const [existingImages, setExistingImages] = useState(initialValues.image || []);
+  const [existingImages, setExistingImages] = useState(
+    initialValues.image || []
+  );
 
   // For new category
   const [newCategory, setNewCategory] = useState("");
@@ -67,7 +73,9 @@ const ProductForm = ({
     if (!newCategory.trim()) return;
     setAddingCategory(true);
     try {
-      const res = await axios.post(backendUrl + "/api/category/add", { name: newCategory });
+      const res = await axios.post(backendUrl + "/api/category/add", {
+        name: newCategory,
+      });
       // Update categories in local state and parent if provided
       setCategories((prev) => [...prev, res.data]);
       if (setCategoriesProp) setCategoriesProp((prev) => [...prev, res.data]);
@@ -100,7 +108,9 @@ const ProductForm = ({
     >
       {/* Image Upload Section */}
       <div className="w-full">
-        <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Images</p>
+        <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">
+          Images
+        </p>
         <div className="flex gap-3 flex-wrap">
           {imageStates.map(([img, setImg, existing], idx) => (
             <label
@@ -142,7 +152,9 @@ const ProductForm = ({
       {/* Product Details Section */}
       <div className="w-full grid grid-cols-1 gap-4">
         <div>
-          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Product Name</p>
+          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">
+            Product Name
+          </p>
           <input
             onChange={(e) => setName(e.target.value)}
             value={name}
@@ -153,7 +165,9 @@ const ProductForm = ({
           />
         </div>
         <div>
-          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Product Info</p>
+          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">
+            Product Info
+          </p>
           <ReactQuill
             value={productInfo}
             onChange={setProductInfo}
@@ -164,7 +178,9 @@ const ProductForm = ({
           />
         </div>
         <div>
-          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Product Description</p>
+          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">
+            Product Description
+          </p>
           <ReactQuill
             value={description}
             onChange={setDescription}
@@ -177,7 +193,9 @@ const ProductForm = ({
 
       <div className="flex flex-col sm:flex-row gap-4 w-full">
         <div className="flex-1">
-          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Product Category</p>
+          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">
+            Product Category
+          </p>
           <select
             onChange={(e) => setCategory(e.target.value)}
             value={category}
@@ -215,7 +233,9 @@ const ProductForm = ({
         </div>
 
         <div className="flex-1">
-          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">Product Price</p>
+          <p className="mb-2 font-semibold text-gray-700 dark:text-gray-200">
+            Product Price
+          </p>
           <input
             onChange={(e) => setPrice(e.target.value)}
             value={price}
@@ -232,7 +252,11 @@ const ProductForm = ({
         className="w-44 mt-4 py-3 flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark dark:bg-blue-600 dark:hover:bg-blue-700 text-white rounded-full font-semibold shadow transition focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-blue-400"
         disabled={loading}
       >
-        {submitLabel === "Add" ? <FiPlus className="text-lg" /> : <FiSave className="text-lg" />}
+        {submitLabel === "Add" ? (
+          <FiPlus className="text-lg" />
+        ) : (
+          <FiSave className="text-lg" />
+        )}
         {submitLabel}
       </button>
     </form>

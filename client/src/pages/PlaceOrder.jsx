@@ -198,7 +198,7 @@ const PlaceOrder = () => {
               <CartTotal />
             </div>
             <div className="w-full max-w-md bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-6">
-              <Title text1={"PAYMENT"} text2={"METHOD"} animate={false}/>
+              <Title text1={"PAYMENT"} text2={"METHOD"} animate={false} />
               {/* Payment method selection */}
               <div className="flex flex-col lg:flex-row gap-3 mt-4">
                 {/* Stripe */}
@@ -218,7 +218,11 @@ const PlaceOrder = () => {
                       method === "stripe" ? "bg-green-400 border-green-400" : ""
                     }`}
                   ></span>
-                  <img className="h-5 mx-4" src={assets.stripe_logo} alt="Stripe" />
+                  <img
+                    className="h-5 mx-4"
+                    src={assets.stripe_logo}
+                    alt="Stripe"
+                  />
                 </div>
                 {/* Razorpay */}
                 <div
@@ -234,10 +238,16 @@ const PlaceOrder = () => {
                   )}
                   <span
                     className={`min-w-3.5 h-3.5 border rounded-full flex items-center justify-center ${
-                      method === "razorpay" ? "bg-green-400 border-green-400" : ""
+                      method === "razorpay"
+                        ? "bg-green-400 border-green-400"
+                        : ""
                     }`}
                   ></span>
-                  <img className="h-5 mx-4" src={assets.razorpay_logo} alt="Razorpay" />
+                  <img
+                    className="h-5 mx-4"
+                    src={assets.razorpay_logo}
+                    alt="Razorpay"
+                  />
                 </div>
                 {/* COD */}
                 <div
@@ -262,10 +272,7 @@ const PlaceOrder = () => {
                 </div>
               </div>
               <div className="w-full text-end mt-8">
-                <button
-                  type="submit"
-                  className="secondary-btn"
-                >
+                <button type="submit" className="secondary-btn">
                   PLACE ORDER
                 </button>
               </div>

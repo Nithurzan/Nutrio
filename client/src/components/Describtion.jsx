@@ -1,35 +1,29 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { assets } from '../assets/asset'
-import axios from "axios"
+import React, { useState, useEffect, useContext } from "react";
+import { assets } from "../assets/asset";
+import axios from "axios";
 import { toast } from "react-toastify";
-import { ShopContext } from '../context/ShopContext';
+import { ShopContext } from "../context/ShopContext";
 
 const Describtion = ({ productDescribtion, productId }) => {
-  const { backendUrl, token } = useContext(ShopContext)
-  const [activeTab, setActiveTab] = useState('description');
+  const { backendUrl, token } = useContext(ShopContext);
+  const [activeTab, setActiveTab] = useState("description");
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState({ rating: 5, comment: "" });
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    axios.get(backendUrl + `/api/review/${productId}`).then(res => {
+    axios.get(backendUrl + `/api/review/${productId}`).then((res) => {
       if (res.data.success) setReviews(res.data.reviews);
     });
   }, [backendUrl, productId]);
-
-
 
   const handleReviewChange = (e) => {
     setNewReview({ ...newReview, [e.target.name]: e.target.value });
   };
 
-
-
   const handleRatingChange = (rating) => {
     setNewReview({ ...newReview, rating });
   };
-
-
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +45,9 @@ const Describtion = ({ productDescribtion, productId }) => {
         setNewReview({ rating: 5, comment: "" });
         toast.success("Review submitted successfully");
         // Fetch latest reviews after submit
-        const reviewsRes = await axios.get(backendUrl + `/api/review/${productId}`);
+        const reviewsRes = await axios.get(
+          backendUrl + `/api/review/${productId}`
+        );
         if (reviewsRes.data.success) setReviews(reviewsRes.data.reviews);
       }
     } catch (err) {
@@ -61,14 +57,12 @@ const Describtion = ({ productDescribtion, productId }) => {
     setSubmitting(false);
   };
 
-
-
   // Highlight the best review (highest rating, most recent)
   const highlightReview = reviews.length
-    ? [...reviews].sort((a, b) => b.rating - a.rating || new Date(b.date) - new Date(a.date))[0]
+    ? [...reviews].sort(
+        (a, b) => b.rating - a.rating || new Date(b.date) - new Date(a.date)
+      )[0]
     : null;
-
-    
 
   return (
     <section className="w-full max-w-3xl mx-auto">
@@ -77,36 +71,42 @@ const Describtion = ({ productDescribtion, productId }) => {
         <div className="flex border-b border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 rounded-t-xl shadow-sm">
           <button
             className={`flex-1 px-4 py-3 text-sm md:text-base font-semibold focus:outline-none transition-all
-              ${activeTab === 'description'
-                ? 'border-b-2 border-primary text-primary dark:text-primary bg-gray-100 dark:bg-gray-800 rounded-t-xl shadow'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'}
+              ${
+                activeTab === "description"
+                  ? "border-b-2 border-primary text-primary dark:text-primary bg-gray-100 dark:bg-gray-800 rounded-t-xl shadow"
+                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              }
             `}
-            onClick={() => setActiveTab('description')}
+            onClick={() => setActiveTab("description")}
           >
             Description
           </button>
           <button
             className={`flex-1 px-4 py-3 text-sm md:text-base font-semibold focus:outline-none transition-all
-              ${activeTab === 'reviews'
-                ? 'border-b-2 border-primary text-primary dark:text-primary bg-gray-100 dark:bg-gray-800 rounded-t-xl shadow'
-                : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'}
+              ${
+                activeTab === "reviews"
+                  ? "border-b-2 border-primary text-primary dark:text-primary bg-gray-100 dark:bg-gray-800 rounded-t-xl shadow"
+                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              }
             `}
-            onClick={() => setActiveTab('reviews')}
+            onClick={() => setActiveTab("reviews")}
           >
             Reviews ({reviews.length})
           </button>
         </div>
         <div className="border border-t-0 px-4 md:px-8 py-6 text-sm md:text-base text-gray-700 dark:text-gray-300 bg-white/90 dark:bg-gray-900/90 rounded-b-xl shadow-md dark:shadow-[0_0_15px_rgba(255,255,255,0.08)]">
-          {activeTab === 'description' && (
+          {activeTab === "description" && (
             <div>
-              <h2 className="font-semibold mb-2 text-lg md:text-xl">Product Description</h2>
+              <h2 className="font-semibold mb-2 text-lg md:text-xl">
+                Product Description
+              </h2>
               <p
                 className="prose dark:prose-invert"
                 dangerouslySetInnerHTML={{ __html: productDescribtion }}
               ></p>
             </div>
           )}
-          {activeTab === 'reviews' && (
+          {activeTab === "reviews" && (
             <div className="flex flex-col gap-8">
               {/* Highlighted Review */}
               {highlightReview && (
@@ -116,16 +116,31 @@ const Describtion = ({ productDescribtion, productId }) => {
                   </p>
                   <div className="flex justify-center gap-1 mt-2">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className={i < highlightReview.rating ? "text-yellow-400 text-lg" : "text-gray-300 text-lg"}>★</span>
+                      <span
+                        key={i}
+                        className={
+                          i < highlightReview.rating
+                            ? "text-yellow-400 text-lg"
+                            : "text-gray-300 text-lg"
+                        }
+                      >
+                        ★
+                      </span>
                     ))}
                   </div>
                   <span className="text-gray-500 dark:text-gray-400 text-xs">
-                    — {highlightReview.user?.name || highlightReview.user?.email || "User"}
+                    —{" "}
+                    {highlightReview.user?.name ||
+                      highlightReview.user?.email ||
+                      "User"}
                   </span>
                 </div>
               )}
               {/* Add Review Form */}
-              <form onSubmit={handleReviewSubmit} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-xl shadow flex flex-col gap-3">
+              <form
+                onSubmit={handleReviewSubmit}
+                className="bg-gray-50 dark:bg-gray-800 p-4 rounded-xl shadow flex flex-col gap-3"
+              >
                 <div className="flex items-center gap-2">
                   <span className="font-semibold">Your Rating:</span>
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -135,7 +150,13 @@ const Describtion = ({ productDescribtion, productId }) => {
                       onClick={() => handleRatingChange(star)}
                       className="focus:outline-none"
                     >
-                      <span className={star <= newReview.rating ? "text-yellow-500 text-xl" : "text-gray-300 text-xl"}>
+                      <span
+                        className={
+                          star <= newReview.rating
+                            ? "text-yellow-500 text-xl"
+                            : "text-gray-300 text-xl"
+                        }
+                      >
                         ★
                       </span>
                     </button>
@@ -169,7 +190,16 @@ const Describtion = ({ productDescribtion, productId }) => {
                     <div className="flex items-center gap-2 mb-1">
                       <span className="flex gap-0.5">
                         {[...Array(5)].map((_, i) => (
-                          <span key={i} className={i < review.rating ? "text-yellow-400 text-base" : "text-gray-300 text-base"}>★</span>
+                          <span
+                            key={i}
+                            className={
+                              i < review.rating
+                                ? "text-yellow-400 text-base"
+                                : "text-gray-300 text-base"
+                            }
+                          >
+                            ★
+                          </span>
                         ))}
                       </span>
                       <span className="font-semibold">
@@ -188,7 +218,7 @@ const Describtion = ({ productDescribtion, productId }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Describtion
+export default Describtion;

@@ -22,7 +22,11 @@ const GoToTopButton = () => {
       aria-label="Go to top"
       className={`fixed z-50 bottom-6 right-6 sm:bottom-8 sm:right-8 p-3 rounded-full shadow-lg transition-all duration-300
         bg-primary text-white dark:bg-secondary dark:text-gray-900 hover:bg-secondary hover:text-white dark:hover:bg-primary dark:hover:text-gray-100
-        ${visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+        ${
+          visible
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }
       `}
       style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}
     >

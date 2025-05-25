@@ -1,14 +1,10 @@
-import mongoose from "mongoose"
-
+import mongoose from "mongoose";
 
 const connectDB = async () => {
+  mongoose.connection.on("connected", () => {
+    console.log("DB Connected");
+  });
 
-    mongoose.connection.on('connected',() => {
-        console.log('DB Connected')
-        
-    })
-
-   await mongoose.connect(`${process.env.MONGODB_URI}nutrio`)
-    
-}
+  await mongoose.connect(`${process.env.MONGODB_URI}nutrio`);
+};
 export default connectDB;

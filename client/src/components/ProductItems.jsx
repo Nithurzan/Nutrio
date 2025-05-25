@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { ShopContext } from '../context/ShopContext'
-import { FadeLeft } from '../utilitty/Animation'
-import { motion } from 'framer-motion'
-import { FaStar } from 'react-icons/fa'
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
+import { FadeLeft } from "../utilitty/Animation";
+import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa";
 
 function ProductItems({ id, image, name, price, description, featured }) {
-  const { currency } = useContext(ShopContext)
-  const [hovered, setHovered] = useState(false)
+  const { currency } = useContext(ShopContext);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <section>
@@ -16,7 +16,10 @@ function ProductItems({ id, image, name, price, description, featured }) {
         variants={FadeLeft(id * 0.3)}
         initial="hidden"
         whileInView="visible"
-        whileHover={{ scale: 1.06, boxShadow: "0 16px 40px 0 rgba(0,0,0,0.18)" }}
+        whileHover={{
+          scale: 1.06,
+          boxShadow: "0 16px 40px 0 rgba(0,0,0,0.18)",
+        }}
         className="flex flex-col justify-between items-center pb-4 rounded-2xl border border-primary/10 dark:border-secondary/20 bg-white/90 dark:bg-gray-900/90 shadow-lg hover:shadow-2xl transition-all duration-300 w-72"
       >
         <Link
@@ -27,7 +30,10 @@ function ProductItems({ id, image, name, price, description, featured }) {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <div className="relative overflow-hidden rounded-t-2xl w-full aspect-square bg-gray-50 dark:bg-gray-800 flex items-center justify-center" style={{ minHeight: 180 }}>
+          <div
+            className="relative overflow-hidden rounded-t-2xl w-full aspect-square bg-gray-50 dark:bg-gray-800 flex items-center justify-center"
+            style={{ minHeight: 180 }}
+          >
             <img
               src={hovered && image[1] ? image[1] : image[0]}
               alt={name}
@@ -42,17 +48,22 @@ function ProductItems({ id, image, name, price, description, featured }) {
             )}
           </div>
           <div className="w-full text-left mt-4 space-y-1 px-4">
-            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 truncate">{name}</p>
-            <p 
+            <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 truncate">
+              {name}
+            </p>
+            <p
               className="text-sm text-gray-500 dark:text-gray-400 truncate"
               dangerouslySetInnerHTML={{ __html: description }}
             />
-            <p className="text-xl font-extrabold text-primary dark:text-secondary mt-2">{currency}{price}</p>
+            <p className="text-xl font-extrabold text-primary dark:text-secondary mt-2">
+              {currency}
+              {price}
+            </p>
           </div>
         </Link>
       </motion.div>
     </section>
-  )
+  );
 }
 
-export default ProductItems
+export default ProductItems;

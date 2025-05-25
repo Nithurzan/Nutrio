@@ -5,13 +5,7 @@ import Counter from "../models/counterModel.js";
 // Add Product
 const addProduct = async (req, res) => {
   try {
-    const {
-      name,
-      productInfo,
-      description,
-      price,
-      category,
-    } = req.body;
+    const { name, productInfo, description, price, category } = req.body;
 
     const image1 = req.files.image1 && req.files.image1[0];
     const image2 = req.files.image2 && req.files.image2[0];
@@ -37,9 +31,8 @@ const addProduct = async (req, res) => {
       { $inc: { seq: 1 } },
       { new: true, upsert: true }
     );
-    const productNumber = String(counter.seq).padStart(3, "0"); 
+    const productNumber = String(counter.seq).padStart(3, "0");
     const productId = `PROD-${productNumber}`;
-
 
     const productData = {
       productId,
@@ -47,7 +40,7 @@ const addProduct = async (req, res) => {
       productInfo,
       description,
       price: Number(price),
-      category, 
+      category,
       image: imagesUrl,
       date: Date.now(),
     };
@@ -88,7 +81,9 @@ const removeProduct = async (req, res) => {
 const singleProduct = async (req, res) => {
   try {
     const { productId } = req.body;
-    const product = await productModel.findById(productId).populate("category", "name");
+    const product = await productModel
+      .findById(productId)
+      .populate("category", "name");
     res.json({ success: true, product });
   } catch (error) {
     console.log(error);
@@ -108,7 +103,9 @@ const editProduct = async (req, res) => {
       for (let i = 1; i <= 4; i++) {
         const file = req.files[`image${i}`]?.[0];
         if (file) {
-          const result = await cloudinary.uploader.upload(file.path, { resource_type: "image" });
+          const result = await cloudinary.uploader.upload(file.path, {
+            resource_type: "image",
+          });
           imagesUrl.push(result.secure_url);
         } else if (req.body[`existingImage${i}`]) {
           imagesUrl.push(req.body[`existingImage${i}`]);
@@ -122,8 +119,17 @@ const editProduct = async (req, res) => {
         }
       }
     }
-    const updateData = { name, description, price, category, productInfo, image: imagesUrl };
-    const updated = await productModel.findByIdAndUpdate(id, updateData, { new: true }).populate("category", "name");
+    const updateData = {
+      name,
+      description,
+      price,
+      category,
+      productInfo,
+      image: imagesUrl,
+    };
+    const updated = await productModel
+      .findByIdAndUpdate(id, updateData, { new: true })
+      .populate("category", "name");
     if (!updated) {
       return res.json({ success: false, message: "Product not found" });
     }

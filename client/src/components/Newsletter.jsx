@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FiSend, FiMail } from 'react-icons/fi'
-import Skeletons from '../utilitty/Skeleton';
-import useLoadingTimer from '../utilitty/useLoadingTimer';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FiSend, FiMail } from "react-icons/fi";
+import Skeletons from "../utilitty/Skeleton";
+import useLoadingTimer from "../utilitty/useLoadingTimer";
 
 const NewsLetter = () => {
   const [loading, setLoading] = useState(true);
   const [submitted, setSubmitted] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   useLoadingTimer(setLoading, 1200);
 
@@ -17,8 +17,8 @@ const NewsLetter = () => {
     event.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
-    setEmail('');
-  }
+    setEmail("");
+  };
 
   return (
     <div className="container flex justify-center">
@@ -30,10 +30,12 @@ const NewsLetter = () => {
       >
         <FiMail className="w-14 h-14 text-primary dark:text-secondary mb-4" />
         <p className="text-3xl font-bold font-averia text-gray-800 dark:text-gray-100">
-          Subscribe now & get <span className='text-primary font-bold'>20% off</span>
+          Subscribe now & get{" "}
+          <span className="text-primary font-bold">20% off</span>
         </p>
         <p className="text-gray-500 dark:text-gray-400 mt-3">
-          Stay updated with our latest offers and products. Join our newsletter today!
+          Stay updated with our latest offers and products. Join our newsletter
+          today!
         </p>
 
         {submitted ? (
@@ -61,7 +63,7 @@ const NewsLetter = () => {
                 placeholder="Enter Your Email"
                 required
                 value={email}
-                onChange={e => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <button
@@ -75,7 +77,7 @@ const NewsLetter = () => {
         )}
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default NewsLetter
+export default NewsLetter;

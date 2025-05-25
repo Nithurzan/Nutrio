@@ -1,6 +1,6 @@
-import React from 'react'
-import { OurPolicies } from '../assets/ourPolicyData'
-import { motion } from 'framer-motion'
+import React from "react";
+import { OurPolicies } from "../assets/ourPolicyData";
+import { motion } from "framer-motion";
 
 const OurPolicy = () => {
   return (
@@ -19,13 +19,17 @@ const OurPolicy = () => {
             <div className="w-20 h-20 m-auto mb-5 bg-primary/10 dark:bg-secondary/30 border-2 border-primary/20 dark:border-secondary/40 rounded-full flex items-center justify-center shadow-[0_0_22px_0_rgba(0,0,0,0.10)] dark:shadow-[0_0_22px_0_#81C784]">
               <img src={item.img} alt={item.Titile} className="w-10 h-10" />
             </div>
-            <p className="font-semibold font-poppins text-base sm:text-lg text-gray-800 dark:text-secondary mb-2">{item.Titile}</p>
-            <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">{item.Subtitle}</p>
+            <p className="font-semibold font-poppins text-base sm:text-lg text-gray-800 dark:text-secondary mb-2">
+              {item.Titile}
+            </p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
+              {item.Subtitle}
+            </p>
           </motion.div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default OurPolicy
+export default OurPolicy;

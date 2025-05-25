@@ -8,11 +8,11 @@
 
 // const Footer = () => {
 //   const [loading, setLoading] = useState(true);
-  
+
 //   useLoadingTimer(setLoading,1200)
-  
+
 //     if (loading) return <Skeletons type="footer" />;
-  
+
 //   return (
 //     <footer className="relative bg-gradient-to-t from-primary/10 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 mt-10">
 //       {/* Accent bar */}
@@ -147,19 +147,17 @@
 
 // export default Footer
 
-
-
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
-import { FadeLeft, FadeRight, FadeUp } from '../utilitty/Animation'
-import Skeletons from '../utilitty/Skeleton'
-import useLoadingTimer from '../utilitty/useLoadingTimer'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FadeLeft, FadeRight, FadeUp } from "../utilitty/Animation";
+import Skeletons from "../utilitty/Skeleton";
+import useLoadingTimer from "../utilitty/useLoadingTimer";
 
 const Footer = () => {
   const [loading, setLoading] = useState(true);
-  useLoadingTimer(setLoading, 1200)
+  useLoadingTimer(setLoading, 1200);
   if (loading) return <Skeletons type="footer" />;
 
   return (
@@ -183,14 +181,18 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
               className="flex flex-col items-center md:items-start"
             >
-              <Link className="flex items-center justify-center md:justify-start text-2xl font-poppins font-bold gap-2 hover:opacity-80 transition" to="/">
+              <Link
+                className="flex items-center justify-center md:justify-start text-2xl font-poppins font-bold gap-2 hover:opacity-80 transition"
+                to="/"
+              >
                 <img className="h-9 w-9" src="./logo.png" alt="Nutrio Logo" />
                 <p className="text-primary font-poppins">
                   <span className="text-accent">N</span>utrio
                 </p>
               </Link>
               <p className="w-full md:w-2/3 text-gray-600 dark:text-gray-400 mt-4">
-                Your trusted partner for healthy living. Explore our products and services today.
+                Your trusted partner for healthy living. Explore our products
+                and services today.
               </p>
               {/* Tagline/Testimonial */}
               <div className="mt-4 italic text-primary dark:text-secondary text-xs font-semibold">
@@ -205,13 +207,50 @@ const Footer = () => {
               whileInView={"visible"}
               className="flex flex-col items-center md:items-start"
             >
-              <p className="text-base font-bold mb-5 uppercase tracking-wide text-primary dark:text-secondary">Quick Links</p>
+              <p className="text-base font-bold mb-5 uppercase tracking-wide text-primary dark:text-secondary">
+                Quick Links
+              </p>
               <ul className="flex flex-col gap-1 text-gray-600 dark:text-gray-400">
-                <li><Link to="/" className="hover:text-primary dark:hover:text-secondary transition">Home</Link></li>
-                <li><Link to="/products" className="hover:text-primary dark:hover:text-secondary transition">Shop</Link></li>
-                <li><Link to="/about" className="hover:text-primary dark:hover:text-secondary transition">About Us</Link></li>
-                <li><Link to="/contact" className="hover:text-primary dark:hover:text-secondary transition">Contact</Link></li>
-                <li><Link to="/faq" className="hover:text-primary dark:hover:text-secondary transition">FAQ</Link></li>
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/products"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Shop
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/faq"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    FAQ
+                  </Link>
+                </li>
               </ul>
             </motion.div>
 
@@ -222,12 +261,42 @@ const Footer = () => {
               whileInView={"visible"}
               className="flex flex-col items-center md:items-start"
             >
-              <p className="text-base font-bold mb-5 uppercase tracking-wide text-primary dark:text-secondary">Customer Support</p>
+              <p className="text-base font-bold mb-5 uppercase tracking-wide text-primary dark:text-secondary">
+                Customer Support
+              </p>
               <ul className="flex flex-col gap-1 text-gray-600 dark:text-gray-400">
-                <li><Link to="/shipping" className="hover:text-primary dark:hover:text-secondary transition">Shipping & Returns</Link></li>
-                <li><Link to="/privacy" className="hover:text-primary dark:hover:text-secondary transition">Privacy Policy</Link></li>
-                <li><Link to="/terms" className="hover:text-primary dark:hover:text-secondary transition">Terms of Service</Link></li>
-                <li><Link to="/orders" className="hover:text-primary dark:hover:text-secondary transition">Track Order</Link></li>
+                <li>
+                  <Link
+                    to="/shipping"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Shipping & Returns
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/privacy"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terms"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/orders"
+                    className="hover:text-primary dark:hover:text-secondary transition"
+                  >
+                    Track Order
+                  </Link>
+                </li>
               </ul>
             </motion.div>
 
@@ -238,7 +307,9 @@ const Footer = () => {
               whileInView={"visible"}
               className="flex flex-col items-center md:items-start"
             >
-              <p className="text-base font-bold mb-5 uppercase tracking-wide text-primary dark:text-secondary">Follow Us</p>
+              <p className="text-base font-bold mb-5 uppercase tracking-wide text-primary dark:text-secondary">
+                Follow Us
+              </p>
               <div className="flex gap-4 justify-center md:justify-start mb-4">
                 <a
                   href="https://facebook.com"
@@ -282,8 +353,12 @@ const Footer = () => {
                 <p className="text-gray-600 dark:text-gray-400">
                   Address: 123 Nutrio Street, Wellness City
                 </p>
-                <p className="text-gray-600 dark:text-gray-400">Phone: +94 123456789</p>
-                <p className="text-gray-600 dark:text-gray-400">Email: contact@nutrio.com</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Phone: +94 123456789
+                </p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Email: contact@nutrio.com
+                </p>
               </div>
             </motion.div>
           </div>
@@ -305,7 +380,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

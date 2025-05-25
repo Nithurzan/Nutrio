@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div className="bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-950 dark:to-blue-950 min-h-screen min-w-full">
-      <ToastContainer/>
+      <ToastContainer />
       {token === "" ? (
         <div className="flex items-center justify-center min-h-screen">
           <Login setToken={setToken} />

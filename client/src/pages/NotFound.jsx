@@ -16,7 +16,8 @@ const NotFound = () => (
         Page Not Found
       </h2>
       <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md">
-        Oops! The page you are looking for doesn’t exist or has been moved.<br />
+        Oops! The page you are looking for doesn’t exist or has been moved.
+        <br />
         Let’s get you back to a healthy place!
       </p>
       <Link

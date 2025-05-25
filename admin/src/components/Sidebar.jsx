@@ -1,11 +1,19 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { FiPlusSquare, FiList, FiShoppingBag } from "react-icons/fi"
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { FiPlusSquare, FiList, FiShoppingBag } from "react-icons/fi";
 
 const navItems = [
-  { to: '/add', icon: <FiPlusSquare className="w-6 h-6" />, label: 'Add Items' },
-  { to: '/list', icon: <FiList className="w-6 h-6" />, label: 'List Items' },
-  { to: '/order', icon: <FiShoppingBag className="w-6 h-6" />, label: 'Orders' },
+  {
+    to: "/add",
+    icon: <FiPlusSquare className="w-6 h-6" />,
+    label: "Add Items",
+  },
+  { to: "/list", icon: <FiList className="w-6 h-6" />, label: "List Items" },
+  {
+    to: "/order",
+    icon: <FiShoppingBag className="w-6 h-6" />,
+    label: "Orders",
+  },
 ];
 
 const Sidebar = () => {
@@ -22,8 +30,8 @@ const Sidebar = () => {
               hover:bg-gray-100 dark:hover:bg-gray-800
               ${
                 isActive
-                  ? 'bg-gray-200 dark:bg-gray-800 font-semibold shadow-inner'
-                  : ''
+                  ? "bg-gray-200 dark:bg-gray-800 font-semibold shadow-inner"
+                  : ""
               }`
             }
             aria-label={label}
@@ -31,7 +39,9 @@ const Sidebar = () => {
             {/* Left accent bar for active */}
             <span
               className={`absolute left-0 top-2 bottom-2 w-1 rounded bg-accent transition-all duration-200 ${
-                window.location.pathname === to ? 'opacity-100' : 'opacity-0 group-hover:opacity-40'
+                window.location.pathname === to
+                  ? "opacity-100"
+                  : "opacity-0 group-hover:opacity-40"
               }`}
               aria-hidden="true"
             />
@@ -43,7 +53,7 @@ const Sidebar = () => {
         ))}
       </nav>
     </aside>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

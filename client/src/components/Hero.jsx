@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
-import { IoBagHandleOutline } from 'react-icons/io5'
-import HeroPng from '../assets/img/fruit-plate.png'
-import LeafPng from '../assets/img/leaf.png'
-import { motion } from 'framer-motion'
-import { FadeRight } from '../utilitty/Animation'
-import { ShopContext } from '../context/ShopContext'
+import React, { useContext } from "react";
+import { IoBagHandleOutline } from "react-icons/io5";
+import HeroPng from "../assets/img/fruit-plate.png";
+import LeafPng from "../assets/img/leaf.png";
+import { motion } from "framer-motion";
+import { FadeRight } from "../utilitty/Animation";
+import { ShopContext } from "../context/ShopContext";
 
 const Hero = () => {
-  const {navigate} = useContext(ShopContext)
+  const { navigate } = useContext(ShopContext);
   return (
     <section>
       <div className=" grid grid-cols-1 md:grid-cols-2 min-h-[650px] relative">
@@ -23,7 +23,10 @@ const Hero = () => {
               Fuel Your
               <br />
               Health Journey
-              <span className="text-primary dark:text-secondary"> Naturally!</span>
+              <span className="text-primary dark:text-secondary">
+                {" "}
+                Naturally!
+              </span>
             </motion.h1>
 
             <motion.p
@@ -41,7 +44,8 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
             >
-              Shop curated supplements, organic foods, and expert wellness advice — all in one place.
+              Shop curated supplements, organic foods, and expert wellness
+              advice — all in one place.
             </motion.p>
 
             {/* Button Section */}
@@ -51,9 +55,9 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
             >
-              <button 
+              <button
                 className="primary-btn flex items-center gap-2  text-white dark:bg-secondary dark:text-gray-900"
-                onClick={() => navigate('/products')}
+                onClick={() => navigate("/products")}
               >
                 <span>
                   <IoBagHandleOutline />
@@ -72,7 +76,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.2 }}
             src={HeroPng}
             alt=""
-            loading='lazy'
+            loading="lazy"
             className="w-[350px] md:w-[550px] drop-shadow dark:drop-shadow-[0_4px_6px_rgba(255,255,255,0.1)]"
           />
         </div>
@@ -85,13 +89,13 @@ const Hero = () => {
             transition={{ duration: 1, delay: 1.5 }}
             src={LeafPng}
             alt=""
-            loading='lazy'
+            loading="lazy"
             className="w-full max-w-[300px] dark:opacity-60"
           />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

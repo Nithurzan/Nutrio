@@ -1,43 +1,43 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-const ThemeContext = createContext()
+const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
     try {
-      const saved = localStorage.getItem('theme')
-      if (saved === 'dark') return true
-      if (saved === 'light') return false
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") return true;
+      if (saved === "light") return false;
     } catch (error) {
-      console.error('Error accessing localStorage:', error)
+      console.error("Error accessing localStorage:", error);
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(() => {
-    const root = window.document.documentElement
+    const root = window.document.documentElement;
     if (darkMode) {
-      root.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      root.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-  }, [darkMode])
+  }, [darkMode]);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    const handleChange = () => setDarkMode(mediaQuery.matches)
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = () => setDarkMode(mediaQuery.matches);
 
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
-  }, [])
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       {children}
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
-export const useTheme = () => useContext(ThemeContext)
+export const useTheme = () => useContext(ThemeContext);

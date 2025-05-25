@@ -29,7 +29,9 @@ const Testimonials = () => (
         <FaQuoteLeft className="inline-block text-2xl text-primary dark:text-secondary" />
         What Our Customers Say
       </h2>
-      <p className="text-gray-500 dark:text-gray-400">Real feedback from real people</p>
+      <p className="text-gray-500 dark:text-gray-400">
+        Real feedback from real people
+      </p>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {testimonials.map((t, idx) => (
@@ -47,8 +49,12 @@ const Testimonials = () => (
               <FaStar key={i} className="text-yellow-400" />
             ))}
           </div>
-          <p className="text-gray-700 dark:text-gray-200 italic mb-4">"{t.text}"</p>
-          <div className="font-semibold text-primary dark:text-secondary">{t.name}</div>
+          <p className="text-gray-700 dark:text-gray-200 italic mb-4">
+            "{t.text}"
+          </p>
+          <div className="font-semibold text-primary dark:text-secondary">
+            {t.name}
+          </div>
         </div>
       ))}
     </div>

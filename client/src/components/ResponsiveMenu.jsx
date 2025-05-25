@@ -1,18 +1,18 @@
-import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { NavLink } from 'react-router-dom'
-import NavbarMenu from '../assets/navbarMenuData'
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import NavbarMenu from "../assets/navbarMenuData";
 
 const ResponsiveMenu = ({ open, setOpen }) => {
   return (
-    <AnimatePresence mode='wait'>
+    <AnimatePresence mode="wait">
       {open && (
         <motion.div
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.3 }}
-          className='fixed top-0 left-0 w-full h-screen z-40 flex items-start'
+          className="fixed top-0 left-0 w-full h-screen z-40 flex items-start"
         >
           {/* Backdrop */}
           <div
@@ -22,9 +22,9 @@ const ResponsiveMenu = ({ open, setOpen }) => {
             tabIndex={0}
           />
           {/* Menu Card */}
-          <div className='relative z-10 w-full'>
-            <div className='mx-4 mt-24 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-primary/20 dark:border-secondary/30 p-8'>
-              <ul className='flex flex-col items-center gap-8'>
+          <div className="relative z-10 w-full">
+            <div className="mx-4 mt-24 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-primary/20 dark:border-secondary/30 p-8">
+              <ul className="flex flex-col items-center gap-8">
                 {NavbarMenu.map((item) => (
                   <NavLink
                     key={item.id}
@@ -42,7 +42,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
         </motion.div>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default ResponsiveMenu
+export default ResponsiveMenu;

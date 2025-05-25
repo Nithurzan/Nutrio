@@ -1,11 +1,13 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
 const Title = ({ text1, text2, delay = 0, animate = true }) => {
   const content = (
     <>
       <span className="">{text1}</span>
-      <span className="text-primary dark:text-secondary font-bold">{text2}</span>
+      <span className="text-primary dark:text-secondary font-bold">
+        {text2}
+      </span>
     </>
   );
 
@@ -36,4 +38,4 @@ const Title = ({ text1, text2, delay = 0, animate = true }) => {
   );
 };
 
-export default Title
+export default Title;

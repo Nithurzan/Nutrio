@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Title from './Title';
-import { FaStripeS, FaMoneyBillWave } from 'react-icons/fa';
-import { SiRazorpay } from 'react-icons/si';
+import React, { useState } from "react";
+import Title from "./Title";
+import { FaStripeS, FaMoneyBillWave } from "react-icons/fa";
+import { SiRazorpay } from "react-icons/si";
 
 const PaymentMethod = () => {
   const [method, setMethod] = useState("cod");
@@ -34,21 +34,31 @@ const PaymentMethod = () => {
             <div
               onClick={() => setMethod(option.key)}
               className={`flex flex-col sm:flex-row items-center gap-3 border rounded-lg p-3 cursor-pointer transition-all
-                ${method === option.key
-                  ? "border-primary bg-primary/10 dark:bg-blue-900 ring-2 ring-primary"
-                  : "border-gray-200 dark:border-gray-700 hover:border-primary/60 hover:bg-primary/5 dark:hover:bg-blue-900/30"}
+                ${
+                  method === option.key
+                    ? "border-primary bg-primary/10 dark:bg-blue-900 ring-2 ring-primary"
+                    : "border-gray-200 dark:border-gray-700 hover:border-primary/60 hover:bg-primary/5 dark:hover:bg-blue-900/30"
+                }
               `}
             >
               <span
                 className={`w-5 h-5 border-2 rounded-full flex items-center justify-center transition-all duration-200
-                  ${method === option.key ? "border-green-500 bg-green-400" : "border-gray-300 dark:border-gray-600"}
+                  ${
+                    method === option.key
+                      ? "border-green-500 bg-green-400"
+                      : "border-gray-300 dark:border-gray-600"
+                  }
                 `}
               >
-                {method === option.key && <span className="w-2.5 h-2.5 bg-white rounded-full block"></span>}
+                {method === option.key && (
+                  <span className="w-2.5 h-2.5 bg-white rounded-full block"></span>
+                )}
               </span>
               <div className="flex flex-col sm:flex-row items-center gap-2 flex-1">
                 {option.icon}
-                <span className="text-gray-700 dark:text-gray-200 font-medium">{option.label}</span>
+                <span className="text-gray-700 dark:text-gray-200 font-medium">
+                  {option.label}
+                </span>
               </div>
             </div>
           </li>
@@ -65,9 +75,12 @@ const PaymentMethod = () => {
       {/* Testimonial/Quote Card */}
       <div className="w-full mx-auto mt-8 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow border border-primary/10 dark:border-secondary/20 p-5 text-center">
         <p className="text-primary dark:text-secondary font-semibold text-base">
-          “Nutrio’s payment options are secure and convenient. Checkout is a breeze!”
+          “Nutrio’s payment options are secure and convenient. Checkout is a
+          breeze!”
         </p>
-        <span className="text-gray-500 dark:text-gray-400 text-xs">— Trusted Customer</span>
+        <span className="text-gray-500 dark:text-gray-400 text-xs">
+          — Trusted Customer
+        </span>
       </div>
     </div>
   );

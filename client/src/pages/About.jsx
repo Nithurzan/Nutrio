@@ -1,21 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Title from '../components/Title'
-import { IoBagHandleOutline } from 'react-icons/io5'
-import HeroPng from '../assets/img/fruit-plate.png'
-import { motion } from 'framer-motion'
-import { FadeLeft, FadeUp } from '../utilitty/Animation'
-import Skeletons from '../utilitty/Skeleton'
-import { ShopContext } from '../context/ShopContext'
-import useLoadingTimer from '../utilitty/useLoadingTimer'
+import React, { useContext, useEffect, useState } from "react";
+import Title from "../components/Title";
+import { IoBagHandleOutline } from "react-icons/io5";
+import HeroPng from "../assets/img/fruit-plate.png";
+import { motion } from "framer-motion";
+import { FadeLeft, FadeUp } from "../utilitty/Animation";
+import Skeletons from "../utilitty/Skeleton";
+import { ShopContext } from "../context/ShopContext";
+import useLoadingTimer from "../utilitty/useLoadingTimer";
 
 const About = () => {
-  const{navigate} = useContext(ShopContext)
+  const { navigate } = useContext(ShopContext);
   const [loading, setLoading] = useState(true);
-  
-    useLoadingTimer(setLoading, 1200);
-  
-      if (loading) return <Skeletons type="about" />;
 
+  useLoadingTimer(setLoading, 1200);
+
+  if (loading) return <Skeletons type="about" />;
 
   return (
     <section className="bg-gradient-to-br from-primary/5 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 mt-20">
@@ -29,8 +28,9 @@ const About = () => {
             whileInView="visible"
             className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg"
           >
-            At <span className="text-primary font-semibold">Nutrio</span>, we believe that healthy living starts with honest food. Our mission is to make
-            nutrition easy, accessible, and delicious for everyone.
+            At <span className="text-primary font-semibold">Nutrio</span>, we
+            believe that healthy living starts with honest food. Our mission is
+            to make nutrition easy, accessible, and delicious for everyone.
           </motion.p>
         </div>
 
@@ -68,8 +68,10 @@ const About = () => {
               whileInView="visible"
               className="font-medium text-gray-500 dark:text-gray-400 leading-relaxed text-lg"
             >
-              Founded by health enthusiasts, Nutrio began with a simple goal — to connect people with farm-fresh, organic foods they can trust.
-              What started as a small local delivery service has grown into a trusted online marketplace for wholesome living.
+              Founded by health enthusiasts, Nutrio began with a simple goal —
+              to connect people with farm-fresh, organic foods they can trust.
+              What started as a small local delivery service has grown into a
+              trusted online marketplace for wholesome living.
             </motion.p>
 
             {/* Button Section */}
@@ -86,7 +88,7 @@ const About = () => {
                 variants={FadeLeft(1)}
                 initial="hidden"
                 whileInView="visible"
-                onClick={() => navigate('/products')}
+                onClick={() => navigate("/products")}
                 className="primary-btn flex items-center gap-2 px-7 py-3 text-white rounded-lg bg-accent shadow-lg hover:scale-105 hover:bg-secondary dark:bg-secondary dark:hover:bg-primary dark:text-gray-900 transition-all duration-300"
               >
                 <span>
@@ -99,7 +101,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

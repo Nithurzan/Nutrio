@@ -4,10 +4,9 @@ import userModel from "../models/userModel.js";
 export const addToWishlist = async (req, res) => {
   try {
     const { userId, productId } = req.body;
-    await userModel.findByIdAndUpdate(
-      userId,
-      { $addToSet: { wishlist: productId } }
-    );
+    await userModel.findByIdAndUpdate(userId, {
+      $addToSet: { wishlist: productId },
+    });
     res.json({ success: true, message: "Added to wishlist" });
   } catch (error) {
     res.json({ success: false, message: error.message });
@@ -18,10 +17,9 @@ export const addToWishlist = async (req, res) => {
 export const removeFromWishlist = async (req, res) => {
   try {
     const { userId, productId } = req.body;
-    await userModel.findByIdAndUpdate(
-      userId,
-      { $pull: { wishlist: productId } }
-    );
+    await userModel.findByIdAndUpdate(userId, {
+      $pull: { wishlist: productId },
+    });
     res.json({ success: true, message: "Removed from wishlist" });
   } catch (error) {
     res.json({ success: false, message: error.message });

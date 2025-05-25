@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Title from './Title'
-import { ShopContext } from '../context/ShopContext';
-import ProductItems from './ProductItems';
-import { useNavigate } from 'react-router-dom';
-import { FaChevronRight } from 'react-icons/fa'
+import React, { useContext, useEffect, useState } from "react";
+import Title from "./Title";
+import { ShopContext } from "../context/ShopContext";
+import ProductItems from "./ProductItems";
+import { useNavigate } from "react-router-dom";
+import { FaChevronRight } from "react-icons/fa";
 
 const RecentProduct = () => {
   const { products } = useContext(ShopContext);
   const [latestProducts, setLatestProducts] = useState([]);
 
-  const navigator = useNavigate()
+  const navigator = useNavigate();
 
   useEffect(() => {
     setLatestProducts(products.slice(0, 3));
@@ -19,8 +19,12 @@ const RecentProduct = () => {
     <section>
       <div className="mx-auto py-16 px-2 sm:px-0">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary dark:text-secondary mb-2">Recent Products</h2>
-          <p className="text-lg text-gray-500 dark:text-gray-400">Discover our latest arrivals and best picks for you!</p>
+          <h2 className="text-3xl font-bold text-primary dark:text-secondary mb-2">
+            Recent Products
+          </h2>
+          <p className="text-lg text-gray-500 dark:text-gray-400">
+            Discover our latest arrivals and best picks for you!
+          </p>
         </div>
         {/* Rendering products */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12 mt-8">
@@ -38,13 +42,11 @@ const RecentProduct = () => {
         </div>
         <div className="flex justify-center mt-14">
           <button
-            onClick={() => navigator('/products')}
+            onClick={() => navigator("/products")}
             className="relative flex items-center secondary-btn"
             type="button"
           >
-            <span className="tracking-wide">
-              View All Products
-            </span>
+            <span className="tracking-wide">View All Products</span>
             <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/20 text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110 shadow-lg">
               <FaChevronRight className="w-5 h-5" />
             </span>
@@ -53,7 +55,7 @@ const RecentProduct = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default RecentProduct
+export default RecentProduct;

@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import Title from '../components/Title'
-import { FadeLeft, FadeRight, FadeUp } from '../utilitty/Animation'
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi'
-import Skeletons from '../utilitty/Skeleton'
-import useLoadingTimer from '../utilitty/useLoadingTimer'
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Title from "../components/Title";
+import { FadeLeft, FadeRight, FadeUp } from "../utilitty/Animation";
+import { FiMail, FiPhone, FiMapPin, FiSend } from "react-icons/fi";
+import Skeletons from "../utilitty/Skeleton";
+import useLoadingTimer from "../utilitty/useLoadingTimer";
 
 const Contact = () => {
   const [loading, setLoading] = useState(true);
-  
-  useLoadingTimer(setLoading, 1200);
-  
-  if (loading) return <Skeletons type="contact" />;
 
+  useLoadingTimer(setLoading, 1200);
+
+  if (loading) return <Skeletons type="contact" />;
 
   return (
     <section>
@@ -33,19 +32,26 @@ const Contact = () => {
           >
             <p className="flex items-center gap-3 text-lg">
               <FiMail className="text-primary dark:text-secondary" />
-              <span><strong>Email:</strong> support@nutrio.com</span>
+              <span>
+                <strong>Email:</strong> support@nutrio.com
+              </span>
             </p>
             <p className="flex items-center gap-3 text-lg">
               <FiPhone className="text-primary dark:text-secondary" />
-              <span><strong>Phone:</strong> +1 (555) 123-4567</span>
+              <span>
+                <strong>Phone:</strong> +1 (555) 123-4567
+              </span>
             </p>
             <p className="flex items-center gap-3 text-lg">
               <FiMapPin className="text-primary dark:text-secondary" />
-              <span><strong>Address:</strong> 123 Healthy St, Green City, Earth</span>
+              <span>
+                <strong>Address:</strong> 123 Healthy St, Green City, Earth
+              </span>
             </p>
             <p className="text-lg leading-relaxed">
-              We’d love to hear from you. Whether you have a question about products, pricing, or anything else—our team is ready to answer all your
-              questions.
+              We’d love to hear from you. Whether you have a question about
+              products, pricing, or anything else—our team is ready to answer
+              all your questions.
             </p>
           </motion.div>
 
@@ -116,7 +122,7 @@ const Contact = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

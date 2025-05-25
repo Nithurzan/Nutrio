@@ -9,9 +9,9 @@ const addToCart = async (req, res) => {
 
   try {
     if (cartData[itemId]) {
-        cartData[itemId] += 1;
+      cartData[itemId] += 1;
     } else {
-        cartData[itemId] = 1;
+      cartData[itemId] = 1;
     }
 
     await userModel.findByIdAndUpdate(userId, { cartData });

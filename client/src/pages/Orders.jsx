@@ -47,7 +47,11 @@ const Orders = () => {
                     )}
                     <img
                       className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg shadow object-cover border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
-                      src={item.image && item.image[0] ? item.image[0] : "/fallback.png"}
+                      src={
+                        item.image && item.image[0]
+                          ? item.image[0]
+                          : "/fallback.png"
+                      }
                       alt={item.name}
                     />
                   </div>
@@ -68,7 +72,10 @@ const Orders = () => {
                       Date: <span>{new Date(item.date).toDateString()}</span>
                     </p>
                     <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">
-                      OrderId: <span className="text-gray-500 font-semibold">{item.orderId}</span>
+                      OrderId:{" "}
+                      <span className="text-gray-500 font-semibold">
+                        {item.orderId}
+                      </span>
                     </p>
                     <p className="mt-1 text-xs text-gray-400 dark:text-gray-500">
                       Payment: <span>{item.paymentMethod}</span>

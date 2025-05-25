@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import{assets} from "../assets/asset";
+import { assets } from "../assets/asset";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -25,19 +25,26 @@ const Login = () => {
     }
     try {
       if (currentState === "Signup") {
-        const response = await axios.post(backendUrl + "/api/user/regiester", { name, email, password });
+        const response = await axios.post(backendUrl + "/api/user/regiester", {
+          name,
+          email,
+          password,
+        });
         if (response.data.success) {
           setToken(response.data.token);
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem("token", response.data.token);
           toast.success("Signup successful! ");
         } else {
           toast.error(response.data.message);
         }
       } else {
-        const response = await axios.post(backendUrl + '/api/user/login', { email, password });
+        const response = await axios.post(backendUrl + "/api/user/login", {
+          email,
+          password,
+        });
         if (response.data.success) {
           setToken(response.data.token);
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem("token", response.data.token);
           toast.success("Login successful!");
         } else {
           toast.error(response.data.message);
@@ -50,7 +57,7 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      navigate('/');
+      navigate("/");
     }
   }, [token]);
 
@@ -71,7 +78,9 @@ const Login = () => {
               className="w-20 h-20 mb-6 drop-shadow-lg filter invert brightness-0"
               style={{ filter: "invert(1) brightness(2)" }} // Ensures logo appears white
             />
-            <h2 className="text-4xl font-extrabold mb-2 tracking-wide drop-shadow-lg">Welcome to Nutrio</h2>
+            <h2 className="text-4xl font-extrabold mb-2 tracking-wide drop-shadow-lg">
+              Welcome to Nutrio
+            </h2>
             <p className="text-lg font-medium text-white/90 mb-8 text-center">
               {currentState === "Login"
                 ? "Sign in to access your personalized nutrition journey."
@@ -94,7 +103,9 @@ const Login = () => {
             >
               <FaUserCircle className="w-16 h-16 text-primary dark:text-secondary mb-2" />
               <div className="text-center mb-2">
-                <p className="text-3xl font-extrabold mb-1 text-primary dark:text-secondary tracking-wide">{currentState}</p>
+                <p className="text-3xl font-extrabold mb-1 text-primary dark:text-secondary tracking-wide">
+                  {currentState}
+                </p>
                 <p className="text-gray-500 dark:text-gray-400 text-base">
                   {currentState === "Login"
                     ? "Welcome back! Please sign in to your account."
