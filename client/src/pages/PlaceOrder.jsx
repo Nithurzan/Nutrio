@@ -89,6 +89,7 @@ const PlaceOrder = () => {
           if (responseStripe.data.success) {
             const { session_url } = responseStripe.data;
             window.location.replace(session_url);
+            console.log("strip",session_url);
           } else {
             toast.error(responseStripe.data.message);
           }
