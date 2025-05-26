@@ -44,6 +44,9 @@ const placeOrderStrip = async (req, res) => {
     const { userId, address, items, amount } = req.body;
     const { origin } = req.headers;
 
+    const currency = "usd"; // Or your desired currency
+    const deliveryCharge = 500; // Or get from request or config
+
     const orderData = {
       orderId,
       user: userId,
@@ -58,39 +61,44 @@ const placeOrderStrip = async (req, res) => {
     const newOrder = new orderModel(orderData);
     await newOrder.save();
 
-    const line_items = items.map((item) => ({
+    // ✅ Build line_items array properly
+    const line_items = items.map((product) => ({
       price_data: {
-        currency: currency,
+        currency,
         product_data: {
-          name: item.name,
+          name: product.name,
         },
-        unit_amount: item.price * 100,
+        unit_amount: product.price * 100,
       },
-      quantity: item.quantity,
+      quantity: product.quantity,
     }));
+
+    // ✅ Add delivery as a separate item (no `item` used here)
     line_items.push({
       price_data: {
-        currency: currency,
+        currency,
         product_data: {
-          name: item.name,
+          name: "Delivery Charge",
         },
-        unit_amount: deliveryCharge * 100,
+        unit_amount: deliveryCharge,
       },
       quantity: 1,
     });
+
     const session = await stripe.checkout.sessions.create({
       success_url: `${origin}/verify?success=true&orderId=${newOrder._id}`,
       cancel_url: `${origin}/verify?success=false&orderId=${newOrder._id}`,
       line_items,
       mode: "payment",
     });
+
     res.json({ success: true, session_url: session.url });
-    
   } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: error.message });
+    console.error("Stripe Error: ", error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
+
 
 //Placing orders using razorpay method
 const placeOrderRazorpay = async (req, res) => {};
