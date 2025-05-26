@@ -46,14 +46,16 @@ const Products = () => {
       );
     }
     if (category.length > 0) {
-      productsCopy = productsCopy.filter((item) =>
-        category.includes(
-          typeof item.category === "object"
-            ? item.category._id
-            : String(item.category)
-        )
-      );
-    }
+  productsCopy = productsCopy.filter((item) => {
+    if (!item.category) return false; // 🚫 Ignore null categories
+    const catId = typeof item.category === "object"
+      ? item.category._id
+      : String(item.category);
+    return category.includes(catId);
+  });
+}
+
+     
     setFilterProducts(productsCopy);
   };
 
