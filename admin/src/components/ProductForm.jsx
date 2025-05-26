@@ -39,6 +39,7 @@ const ProductForm = ({
   const [existingImages, setExistingImages] = useState(
     initialValues.image || []
   );
+  const [formSubmitting, setFormSubmitting] = useState(false);
 
   // For new category
   const [newCategory, setNewCategory] = useState("");
@@ -90,15 +91,30 @@ const ProductForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({
-      name,
-      productInfo,
-      description,
-      price,
-      category,
-      images: [image1, image2, image3, image4],
-      existingImages,
-    });
+    setFormSubmitting(true);
+
+    try {
+      onSubmit({
+        name,
+        productInfo,
+        description,
+        price,
+        category,
+        images: [image1, image2, image3, image4],
+        existingImages,
+      });
+
+      setName("");
+      setProductInfo("");
+      setDescription("");
+      setPrice("");
+      setCategory("");
+      setImage1(false);
+      setImage2(false);
+      setImage3(false);
+      setImage4(false);
+      setExistingImages([]);
+    } catch (error) {}
   };
 
   return (
@@ -202,6 +218,7 @@ const ProductForm = ({
             className="w-full px-3 py-2 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none"
             required
           >
+            <option value="">Select Category</option>
             {categories.length === 0 ? (
               <option value="">No categories found</option>
             ) : (

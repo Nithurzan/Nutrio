@@ -1,5 +1,13 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import Stripe from "stripe";
+
+//global variables
+const currency = "INR";
+const deliveryCharge = 10;
+
+//gatway initialization
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //Placing orders using COD method
 const placeOrder = async (req, res) => {
@@ -30,7 +38,59 @@ const placeOrder = async (req, res) => {
 };
 
 //Placing orders using Strip method
-const placeOrderStrip = async (req, res) => {};
+const placeOrderStrip = async (req, res) => {
+  try {
+    const orderId = `ORDR-${Date.now()}`;
+    const { userId, address, items, amount } = req.body;
+    const { origin } = req.headers;
+
+    const orderData = {
+      orderId,
+      user: userId,
+      items,
+      address,
+      amount,
+      paymentMethod: "Stripe",
+      payment: false,
+      date: Date.now(),
+    };
+
+    const newOrder = new orderModel(orderData);
+    await newOrder.save();
+
+    const line_items = items.map((item) => ({
+      price_data: {
+        currency: currency,
+        product_data: {
+          name: item.name,
+        },
+        unit_amount: item.price * 100,
+      },
+      quantity: item.quantity,
+    }));
+    line_items.push({
+      price_data: {
+        currency: currency,
+        product_data: {
+          name: item.name,
+        },
+        unit_amount: deliveryCharge * 100,
+      },
+      quantity: 1,
+    });
+    const session = await stripe.checkout.sessions.create({
+      success_url: `${origin}/verify?success=true&orderId=${newOrder._id}`,
+      cancel_url: `${origin}/verify?success=false&orderId=${newOrder._id}`,
+      line_items,
+      mode: "payment",
+    });
+    res.json({ success: true, session_url: session.url });
+    
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 //Placing orders using razorpay method
 const placeOrderRazorpay = async (req, res) => {};

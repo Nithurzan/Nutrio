@@ -63,7 +63,8 @@ const PlaceOrder = () => {
       };
 
       switch (method) {
-        case "cod": {
+        // api call for cod//
+        case "cod":
           const response = await axios.post(
             backendUrl + "/api/order/place",
             orderData,
@@ -77,7 +78,25 @@ const PlaceOrder = () => {
             toast.error(response.data.message);
           }
           break;
-        }
+
+        // api for stripe //
+        case "stripe":
+          const responseStripe = await axios.post(
+            backendUrl + "/api/order/strip",
+            orderData,
+            { headers: { token } }
+          );
+          if (responseStripe.data.success) {
+            const { session_url } = responseStripe.data;
+            window.location.replace(session_url);
+          } else {
+            toast.error(responseStripe.data.message);
+          }
+
+          break;
+
+        // api for razorpay //
+
         default:
           break;
       }
