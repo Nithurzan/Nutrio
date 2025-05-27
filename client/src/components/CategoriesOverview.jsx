@@ -5,16 +5,6 @@ import { CategorySkeleton } from "../utilitty/Skeleton";
 import { motion } from "framer-motion";
 import { FadeUp } from "../utilitty/Animation";
 
-// Animation variant
-// const FadeUp = (delay = 0) => ({
-//   hidden: { opacity: 0, y: 20 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: { delay, duration: 0.5, ease: "easeOut" },
-//   },
-// });
-
 const CategoriesOverview = () => {
   const { setCategory, categories, navigate } = useContext(ShopContext);
   const [showAll, setShowAll] = useState(false);
@@ -33,7 +23,8 @@ const CategoriesOverview = () => {
       const fullHeight = containerRef.current.scrollHeight;
       setHeight(fullHeight + "px");
     } else {
-      const collapsedHeight = containerRef.current.firstChild?.offsetHeight ?? 0;
+      const collapsedHeight =
+        containerRef.current.firstChild?.offsetHeight ?? 0;
       setHeight(`${collapsedHeight}px`);
     }
   }, [showAll, categories]);

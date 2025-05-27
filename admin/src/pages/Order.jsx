@@ -48,7 +48,9 @@ const Order = ({ token }) => {
 
   return (
     <div className="px-2 sm:px-4 md:px-8">
-      <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Order Page</h3>
+      <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">
+        Order Page
+      </h3>
       <div>
         {orders.map((order, index) => (
           <div
@@ -57,8 +59,12 @@ const Order = ({ token }) => {
           >
             {/* Order ID */}
             <div className="flex flex-col items-start justify-center">
-              <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">Order ID</span>
-              <span className="text-xs font-bold text-blue-700 dark:text-blue-300 tracking-wide break-all">{order.orderId}</span>
+              <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                Order ID
+              </span>
+              <span className="text-xs font-bold text-blue-700 dark:text-blue-300 tracking-wide break-all">
+                {order.orderId}
+              </span>
             </div>
             {/* Parcel Image */}
             <div className="flex items-center justify-center">
@@ -69,41 +75,93 @@ const Order = ({ token }) => {
               <div>
                 {order.items.map((item, idx) => (
                   <p className="py-0.5" key={idx}>
-                    {item.name} X {item.quanity} 
+                    {item.name} X {item.quanity}
                     {idx !== order.items.length - 1 && <span>,</span>}
                   </p>
                 ))}
               </div>
-              <p className="mt-3 mb-2 font-medium text-gray-900 dark:text-gray-100">{order.address.firstName + " " + order.address.lastName}</p>
+              <p className="mt-3 mb-2 font-medium text-gray-900 dark:text-gray-100">
+                {order.address.firstName + " " + order.address.lastName}
+              </p>
               <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                 <p>{order.address.street},</p>
                 <p>
-                  {order.address.city}, {order.address.state}, {order.address.country}, {order.address.zipcode}
+                  {order.address.city}, {order.address.state},{" "}
+                  {order.address.country}, {order.address.zipcode}
                 </p>
               </div>
-              <p className="mt-1 text-gray-700 dark:text-gray-200">{order.address.phone}</p>
+              <p className="mt-1 text-gray-700 dark:text-gray-200">
+                {order.address.phone}
+              </p>
             </div>
             {/* Order Info */}
             <div className="flex flex-col gap-2 border-b border-gray-100 dark:border-gray-800 pb-2 mb-2">
-              <p className="text-sm sm:text-[15px]">Items: {order.items.length}</p>
-              <p className="mt-2">Method: <span className="font-medium">{order.paymentMethod}</span></p>
+              <p className="text-sm sm:text-[15px]">
+                Items: {order.items.length}
+              </p>
+              <p className="mt-2">
+                Method:{" "}
+                <span className="font-medium">{order.paymentMethod}</span>
+              </p>
               <p className="flex items-center gap-2 mt-1">
                 Payment:
                 <span
-                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold ${order.payment ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200" : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200"}`}
-                  aria-label={order.payment ? "Payment done" : "Payment pending"}
+                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold ${
+                    order.payment
+                      ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200"
+                      : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200"
+                  }`}
+                  aria-label={
+                    order.payment ? "Payment done" : "Payment pending"
+                  }
                 >
                   {order.payment ? (
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
                   ) : (
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l2 2" /></svg>
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 8v4l2 2"
+                      />
+                    </svg>
                   )}
                   {order.payment ? "Done" : "Pending"}
                 </span>
               </p>
               <p className="flex items-center gap-1 mt-1">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
-                <span className="ml-1">{new Date(order.date).toLocaleDateString()}</span>
+                <svg
+                  className="w-4 h-4 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+                <span className="ml-1">
+                  {new Date(order.date).toLocaleDateString()}
+                </span>
               </p>
             </div>
             {/* Amount */}
@@ -114,7 +172,9 @@ const Order = ({ token }) => {
             </div>
             {/* Status */}
             <div className="flex flex-col items-center gap-2">
-              <label htmlFor={`status-${order._id}`} className="sr-only">Order Status</label>
+              <label htmlFor={`status-${order._id}`} className="sr-only">
+                Order Status
+              </label>
               <div className="relative w-full">
                 <select
                   id={`status-${order._id}`}
@@ -130,7 +190,15 @@ const Order = ({ token }) => {
                   <option value="Delivered">Delivered</option>
                 </select>
                 <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-gray-400">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" /></svg>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
                 </span>
               </div>
             </div>

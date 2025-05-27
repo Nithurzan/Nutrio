@@ -82,7 +82,9 @@ const List = ({ token }) => {
             role="row"
           >
             {/* Product ID */}
-            <p className="font-mono text-xs text-blue-700 dark:text-blue-300 break-all">{item.productId}</p>
+            <p className="font-mono text-xs text-blue-700 dark:text-blue-300 break-all">
+              {item.productId}
+            </p>
 
             {/* Image */}
             <div className="flex justify-center md:justify-start">
@@ -93,13 +95,15 @@ const List = ({ token }) => {
                 loading="lazy"
               />
             </div>
-            
+
             {/* Name */}
             <p className="font-medium text-gray-800 dark:text-gray-100 truncate max-w-xs">
               {item.name}
             </p>
             {/* Category */}
-            <p className="text-gray-600 dark:text-gray-300">{item.category?.name}</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              {item.category?.name}
+            </p>
             {/* Price */}
             <p className="text-gray-800 dark:text-gray-100">
               {currency}
@@ -117,7 +121,10 @@ const List = ({ token }) => {
               >
                 <FiEdit2 aria-hidden="true" size={18} />
               </button>
-              <span className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1" aria-hidden="true"></span>
+              <span
+                className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1"
+                aria-hidden="true"
+              ></span>
               <button
                 onClick={() => removeProduct(item._id)}
                 className="flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 text-red-600 hover:text-white hover:bg-red-600 dark:hover:bg-red-500 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 shadow-sm border border-transparent hover:border-red-400"

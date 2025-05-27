@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
-import { FadeLeft, FadeUp } from "../utilitty/Animation";
 import { motion } from "framer-motion";
-
 
 function ProductItems({ id, image, name, price, productInfo, featured }) {
   const { currency } = useContext(ShopContext);
@@ -11,7 +9,7 @@ function ProductItems({ id, image, name, price, productInfo, featured }) {
 
   return (
     <section>
-      <motion.div    
+      <motion.div
         whileHover={{
           scale: 1.06,
           boxShadow: "0 16px 40px 0 rgba(0,0,0,0.18)",

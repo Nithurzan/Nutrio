@@ -23,7 +23,6 @@ const Profile = () => {
     fetchWishlist();
   }, [token]);
 
-  
   useLoadingTimer(setLoading, 1200);
   if (loading) return <Skeletons type="profile" />;
 

@@ -23,7 +23,7 @@ orderRouter.post("/strip", userAuth, placeOrderStrip);
 //user feature
 orderRouter.post("/userorders", userAuth, userOrders);
 
-//verifr stripe
-orderRouter.post("/verifyStripe", userAuth,verifyStripe);
+//verify stripe
+orderRouter.post("/verifyStripe", userAuth, verifyStripe);
 
 export default orderRouter;

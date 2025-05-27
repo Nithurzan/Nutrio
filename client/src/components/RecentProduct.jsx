@@ -8,8 +8,6 @@ import { RecentProductSkeleton } from "../utilitty/Skeleton";
 import { motion } from "framer-motion";
 import { FadeUp } from "../utilitty/Animation";
 
-
-
 const RecentProduct = () => {
   const { products } = useContext(ShopContext);
   const [latestProducts, setLatestProducts] = useState([]);

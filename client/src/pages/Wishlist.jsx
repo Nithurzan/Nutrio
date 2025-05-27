@@ -1,4 +1,3 @@
-
 import React, { useEffect, useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
@@ -10,8 +9,6 @@ const Wishlist = () => {
   const { backendUrl, token, currency, navigate, fetchWishlist, wishlist } =
     useContext(ShopContext);
   const [loading, setLoading] = useState(true);
-
-  
 
   // Fetch wishlist on mount
   useEffect(() => {
@@ -68,7 +65,8 @@ const Wishlist = () => {
                     {item.name}
                   </div>
                   <div className="text-primary text-base font-bold mt-2">
-                    {currency}{item.price}
+                    {currency}
+                    {item.price}
                   </div>
                 </div>
               </Link>

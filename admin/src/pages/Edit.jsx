@@ -13,10 +13,14 @@ const Edit = ({ token }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.get(backendUrl + "/api/category/").then(res => setCategories(res.data));
-    axios.post(backendUrl + "/api/product/single", { productId: id }).then(res => {
-      setInitialValues(res.data.product);
-    });
+    axios
+      .get(backendUrl + "/api/category/")
+      .then((res) => setCategories(res.data));
+    axios
+      .post(backendUrl + "/api/product/single", { productId: id })
+      .then((res) => {
+        setInitialValues(res.data.product);
+      });
   }, [id]);
 
   const handleEdit = async (data) => {
@@ -30,9 +34,12 @@ const Edit = ({ token }) => {
       formData.append("price", data.price);
       data.images.forEach((img, idx) => {
         if (img) formData.append(`image${idx + 1}`, img);
-        else if (data.existingImages[idx]) formData.append(`existingImage${idx + 1}`, data.existingImages[idx]);
+        else if (data.existingImages[idx])
+          formData.append(`existingImage${idx + 1}`, data.existingImages[idx]);
       });
-      const res = await axios.put(`${backendUrl}/api/product/${id}`, formData, { headers: { token } });
+      const res = await axios.put(`${backendUrl}/api/product/${id}`, formData, {
+        headers: { token },
+      });
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/list");

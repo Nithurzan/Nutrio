@@ -6,12 +6,13 @@ export const addCategory = async (req, res) => {
   try {
     const { name } = req.body;
     const file = req.file;
-    if (!name) return res.status(400).json({ message: "Category name is required" });
+    if (!name)
+      return res.status(400).json({ message: "Category name is required" });
 
     // Check if category already exists
     const exists = await Category.findOne({ name });
-    if (exists) return res.status(409).json({ message: "Category already exists" });
-
+    if (exists)
+      return res.status(409).json({ message: "Category already exists" });
 
     if (!file) return res.status(400).json({ message: "Image is required" });
 
@@ -33,7 +34,7 @@ export const addCategory = async (req, res) => {
 
 // List all categories
 export const getAllCategories = async (req, res) => {
-   try {
+  try {
     const categories = await Category.find();
     res.json(categories);
   } catch (error) {

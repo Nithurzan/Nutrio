@@ -9,7 +9,9 @@ const Add = ({ token }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios.get(backendUrl + "/api/category/").then(res => setCategories(res.data));
+    axios
+      .get(backendUrl + "/api/category/")
+      .then((res) => setCategories(res.data));
   }, []);
 
   const handleAdd = async (data) => {
@@ -24,7 +26,9 @@ const Add = ({ token }) => {
       data.images.forEach((img, idx) => {
         if (img) formData.append(`image${idx + 1}`, img);
       });
-      const res = await axios.post(backendUrl + "/api/product/add", formData, { headers: { token } });
+      const res = await axios.post(backendUrl + "/api/product/add", formData, {
+        headers: { token },
+      });
       if (res.data.success) toast.success(res.data.message);
       else toast.error(res.data.message);
     } catch (err) {

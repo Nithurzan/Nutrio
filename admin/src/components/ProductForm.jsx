@@ -46,8 +46,6 @@ const ProductForm = ({
   const [addingCategory, setAddingCategory] = useState(false);
   const [categoryImage, setCategoryImage] = useState(null);
 
- 
-
   // Local categories state if not provided by parent
   const [categories, setCategories] = useState(categoriesProp);
 
@@ -76,21 +74,19 @@ const ProductForm = ({
     e.preventDefault();
     if (!newCategory.trim()) return;
     if (!categoryImage) {
-    toast.error("Please upload a category image");
-    return;
-  }
+      toast.error("Please upload a category image");
+      return;
+    }
     setAddingCategory(true);
     try {
       const formData = new FormData();
-    formData.append("name", newCategory);
-    formData.append("image", categoryImage);
-
+      formData.append("name", newCategory);
+      formData.append("image", categoryImage);
 
       const res = await axios.post(backendUrl + "/api/category/add", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
-    
       // Update categories in local state and parent if provided
       setCategories((prev) => [...prev, res.data]);
       if (setCategoriesProp) setCategoriesProp((prev) => [...prev, res.data]);
@@ -244,35 +240,34 @@ const ProductForm = ({
             )}
           </select>
           {/* New Category Input */}
-<div className="flex items-center gap-2 mt-2">
-  <input
-    type="text"
-    value={newCategory}
-    onChange={(e) => setNewCategory(e.target.value)}
-    placeholder="Add new category"
-    className="flex-1 px-2 py-1 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-  />
+          <div className="flex items-center gap-2 mt-2">
+            <input
+              type="text"
+              value={newCategory}
+              onChange={(e) => setNewCategory(e.target.value)}
+              placeholder="Add new category"
+              className="flex-1 px-2 py-1 rounded border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            />
 
-  <label className="cursor-pointer text-gray-500 hover:text-black">
-    <FiUploadCloud className="text-2xl" />
-    <input
-      type="file"
-      accept="image/*"
-      onChange={(e) => setCategoryImage(e.target.files[0])}
-      hidden
-    />
-  </label>
+            <label className="cursor-pointer text-gray-500 hover:text-black">
+              <FiUploadCloud className="text-2xl" />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setCategoryImage(e.target.files[0])}
+                hidden
+              />
+            </label>
 
-  <button
-    type="button"
-    onClick={handleAddCategory}
-    disabled={addingCategory || !newCategory.trim() || !categoryImage}
-    className="px-3 py-1 bg-primary text-white rounded text-sm disabled:opacity-50 hover:bg-secondary transition"
-  >
-    {addingCategory ? "Adding..." : "Add"}
-  </button>
-</div>
-
+            <button
+              type="button"
+              onClick={handleAddCategory}
+              disabled={addingCategory || !newCategory.trim() || !categoryImage}
+              className="px-3 py-1 bg-primary text-white rounded text-sm disabled:opacity-50 hover:bg-secondary transition"
+            >
+              {addingCategory ? "Adding..." : "Add"}
+            </button>
+          </div>
         </div>
 
         <div className="flex-1">

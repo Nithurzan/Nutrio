@@ -76,7 +76,7 @@ const Login = () => {
               src={assets.logo}
               alt="Nutrio Logo"
               className="w-20 h-20 mb-6 drop-shadow-lg filter invert brightness-0"
-              style={{ filter: "invert(1) brightness(2)" }} 
+              style={{ filter: "invert(1) brightness(2)" }}
             />
             <h2 className="text-4xl font-extrabold mb-2 tracking-wide drop-shadow-lg">
               Welcome to Nutrio

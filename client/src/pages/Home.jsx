@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="container my-20 py-4">
       <Hero />
-      <CategoriesOverview/>
+      <CategoriesOverview />
       <RecentProduct />
       <Testimonials />
       <OurPolicy />

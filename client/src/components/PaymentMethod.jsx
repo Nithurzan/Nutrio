@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import Title from "./Title";
 import { FaStripeS, FaMoneyBillWave } from "react-icons/fa";
 
-
-const PaymentMethod = ({method, setMethod}) => {
-
+const PaymentMethod = ({ method, setMethod }) => {
   // List format for payment methods
   const paymentOptions = [
     {
@@ -12,7 +10,7 @@ const PaymentMethod = ({method, setMethod}) => {
       label: "Stripe",
       icon: <FaStripeS className="h-6 w-6 text-blue-600 mx-4" />,
     },
-  
+
     {
       key: "cod",
       label: "CASH ON DELIVERY",
@@ -51,7 +49,6 @@ const PaymentMethod = ({method, setMethod}) => {
                 )}
               </span>
               <div className="flex flex-col sm:flex-row items-center gap-2 flex-1">
-                
                 <span className="text-gray-700 dark:text-gray-200 font-medium">
                   {option.label}
                 </span>

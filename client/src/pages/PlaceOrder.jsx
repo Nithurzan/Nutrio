@@ -88,7 +88,7 @@ const PlaceOrder = () => {
           if (responseStripe.data.success) {
             const { session_url } = responseStripe.data;
             window.location.replace(session_url);
-            console.log("strip",session_url);
+            console.log("strip", session_url);
           } else {
             toast.error(responseStripe.data.message);
           }
@@ -214,9 +214,9 @@ const PlaceOrder = () => {
             <div className="w-full max-w-md bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-4 mb-8">
               <CartTotal />
             </div>
- 
-              {/* Payment method selection */}
-                <PaymentMethod setMethod={setMethod} method={method}/>
+
+            {/* Payment method selection */}
+            <PaymentMethod setMethod={setMethod} method={method} />
           </div>
         </form>
       </div>
