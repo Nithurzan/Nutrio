@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
-import { assets } from "../assets/asset";
 import CartTotal from "../components/CartTotal";
 import { FiTrash2, FiShoppingCart } from "react-icons/fi";
 import Skeletons from "../utilitty/Skeleton";

@@ -6,14 +6,23 @@ import Stripe from "stripe";
 const currency = "INR";
 const deliveryCharge = 10;
 
+
 //gatway initialization
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //Placing orders using COD method
 const placeOrder = async (req, res) => {
   try {
+    
+    const { address, items, amount } = req.body;
+    const userId = req.body.userId;
+
+    console.log("REQ BODY:", req.body);
+
+    if (!userId || !Array.isArray(items) || items.length === 0 || !amount) {
+      return res.status(400).json({ success: false, message: "Invalid order data" });
+    }
     const orderId = `ORDR-${Date.now()}`;
-    const { userId, address, items, amount } = req.body;
 
     const orderData = {
       orderId,
@@ -40,12 +49,16 @@ const placeOrder = async (req, res) => {
 //Placing orders using Strip method
 const placeOrderStrip = async (req, res) => {
   try {
-    const orderId = `ORDR-${Date.now()}`;
-    const { userId, address, items, amount } = req.body;
+    
+    const {  address, items, amount } = req.body;
     const { origin } = req.headers;
 
-    const currency = "usd"; // Or your desired currency
-    const deliveryCharge = 500; // Or get from request or config
+const userId = req.body.userId;
+
+    if (!userId || !Array.isArray(items) || items.length === 0 || !amount) {
+      return res.status(400).json({ success: false, message: "Invalid order data" });
+    }
+    const orderId = `ORDR-${Date.now()}`;
 
     const orderData = {
       orderId,
@@ -61,7 +74,6 @@ const placeOrderStrip = async (req, res) => {
     const newOrder = new orderModel(orderData);
     await newOrder.save();
 
-    // ✅ Build line_items array properly
     const line_items = items.map((product) => ({
       price_data: {
         currency,
@@ -73,7 +85,6 @@ const placeOrderStrip = async (req, res) => {
       quantity: product.quantity,
     }));
 
-    // ✅ Add delivery as a separate item (no `item` used here)
     line_items.push({
       price_data: {
         currency,
@@ -99,9 +110,32 @@ const placeOrderStrip = async (req, res) => {
   }
 };
 
+// verify stripe
+const verifyStripe = async (req, res) => {
+  
+    const{orderId, success} = req.body;
+    const {userId} = req.body.userId;
+    
+   
+  try {
 
-//Placing orders using razorpay method
-const placeOrderRazorpay = async (req, res) => {};
+    if (success === true) {
+      await orderModel.findByIdAndUpdate(orderId, {payment: true});
+      await userModel.findByIdAndUpdate(userId, { cartData: {} });
+      res.json({ success: true, message: "Payment Successful" });
+      
+    }else{
+      await orderModel.findByIdAndDelete(orderId);
+      res.json({ success: false, message: "Payment Failed" });
+    }
+    
+  } catch (error) {
+    console.error("Verification Error: ", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+
 
 //All orders data for Adminpanel
 const allOrders = async (req, res) => {
@@ -149,4 +183,5 @@ export {
   allOrders,
   userOrders,
   updateStatus,
+  verifyStripe,
 };

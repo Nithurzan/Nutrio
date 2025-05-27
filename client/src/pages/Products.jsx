@@ -187,30 +187,19 @@ const Products = () => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12 px-2 sm:px-0">
                 {filterProducts.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: index * 0.07,
-                      duration: 0.5,
-                      type: "spring",
-                    }}
-                    whileHover={{
-                      scale: 1.04,
-                      boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                    }}
-                    className="h-full transition-all"
+                  <div
+                    
+                    className="h-full transition-all duration-300 "
                   >
                     <ProductItems
                       id={item._id}
                       name={item.name}
                       image={item.image}
                       price={item.price}
-                      description={item.description}
+                      productInfo={item.productInfo}
                       featured={item.featured}
                     />
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             )}

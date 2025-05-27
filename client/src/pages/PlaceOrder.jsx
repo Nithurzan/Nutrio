@@ -51,7 +51,7 @@ const PlaceOrder = () => {
             products.find((product) => product._id === items)
           );
           if (itemInfo) {
-            itemInfo.quanity = cartItems[items];
+            itemInfo.quantity = cartItems[items];
             orderItems.push(itemInfo);
           }
         }

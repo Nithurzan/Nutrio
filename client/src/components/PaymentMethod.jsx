@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Title from "./Title";
 import { FaStripeS, FaMoneyBillWave } from "react-icons/fa";
-import { SiRazorpay } from "react-icons/si";
 
-const PaymentMethod = () => {
-  const [method, setMethod] = useState("cod");
+
+const PaymentMethod = ({method, setMethod}) => {
+
   // List format for payment methods
   const paymentOptions = [
     {
@@ -12,11 +12,7 @@ const PaymentMethod = () => {
       label: "Stripe",
       icon: <FaStripeS className="h-6 w-6 text-blue-600 mx-4" />,
     },
-    {
-      key: "razorpay",
-      label: "Razorpay",
-      icon: <SiRazorpay className="h-6 w-6 text-indigo-600 mx-4" />,
-    },
+  
     {
       key: "cod",
       label: "CASH ON DELIVERY",
@@ -55,7 +51,7 @@ const PaymentMethod = () => {
                 )}
               </span>
               <div className="flex flex-col sm:flex-row items-center gap-2 flex-1">
-                {option.icon}
+                
                 <span className="text-gray-700 dark:text-gray-200 font-medium">
                   {option.label}
                 </span>

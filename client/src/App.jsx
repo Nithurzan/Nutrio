@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import GoToTopButton from "./components/GoToTopButton";
 import Profile from "./pages/Profile";
 import Wishlist from "./pages/Wishlist";
+import Verify from "./pages/Verify";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/verify" element={<Verify/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
         <div className="my-12">
