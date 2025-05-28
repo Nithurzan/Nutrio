@@ -7,3 +7,4 @@ client\.vscode
 server\.env
 client\.env
 admin\.env
+server\.env
