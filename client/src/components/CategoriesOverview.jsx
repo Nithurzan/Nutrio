@@ -34,29 +34,28 @@ const CategoriesOverview = () => {
             className="cursor-pointer"
             onClick={() => handleCategoryClick(cat._id)}
           >
-<div
-  className="w-full h-40 rounded-xl bg-cover bg-center relative overflow-hidden group shadow-md hover:shadow-2xl transition-all"
-  style={{ backgroundImage: `url(${cat.image})` }}
->
-  <div className="absolute inset-0 flex items-center justify-center">
-    <h3
-      className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase text-center"
-      style={{
-        color: "transparent",
-        backgroundImage: `url(${cat.image})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        WebkitTextStroke: "1.5px black",
-        textShadow: "0 0 3px white, 0 0 6px white",
-      }}
-    >
-      {cat.name}
-    </h3>
-  </div>
-</div>
-
+          <div
+            className="w-full h-40 rounded-xl bg-cover bg-center relative overflow-hidden group shadow-md hover:shadow-2xl transition-all"
+            style={{ backgroundImage: `url(${cat.image})` }}
+          >
+            {/* White bar with stencil text */}
+            <div className="absolute inset-0 flex items-center justify-center  ">
+              <h3
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase text-center"
+                style={{
+                  color: "transparent",
+                  backgroundImage: `url(${cat.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextStroke: "3px black", // Black outline around each letter
+                }}
+              >
+                {cat.name}
+              </h3>
+            </div>
+          </div>
 
 
           </div>

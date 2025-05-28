@@ -27,7 +27,7 @@ const RecentProduct = () => {
           </p>
         </div>
         {/* Rendering products */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12 mt-8">
+        <div className="flex flex-wrap justify-center gap-8 mt-8">
           {latestProducts.map((item, index) => (
             <ProductItems
               key={index}
