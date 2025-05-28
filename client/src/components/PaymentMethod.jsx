@@ -68,16 +68,6 @@ const PaymentMethod = ({method, setMethod}) => {
           PLACE ORDER
         </button>
       </div>
-      {/* Testimonial/Quote Card */}
-      <div className="w-full mx-auto mt-8 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow border border-primary/10 dark:border-secondary/20 p-5 text-center">
-        <p className="text-primary dark:text-secondary font-semibold text-base">
-          “Nutrio’s payment options are secure and convenient. Checkout is a
-          breeze!”
-        </p>
-        <span className="text-gray-500 dark:text-gray-400 text-xs">
-          — Trusted Customer
-        </span>
-      </div>
     </div>
   );
 };

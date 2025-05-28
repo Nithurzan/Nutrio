@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { FiCheckCircle } from "react-icons/fi";
 import Skeletons from "../utilitty/Skeleton";
 import useLoadingTimer from "../utilitty/useLoadingTimer";
+import PaymentMethod from "../components/PaymentMethod";
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
@@ -95,8 +96,6 @@ const PlaceOrder = () => {
           }
 
           break;
-
-        // api for razorpay //
 
         default:
           break;
@@ -217,86 +216,9 @@ const PlaceOrder = () => {
             <div className="w-full max-w-md bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-4 mb-8">
               <CartTotal />
             </div>
-            <div className="w-full max-w-md bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-6">
-              <Title text1={"PAYMENT"} text2={"METHOD"} animate={false} />
+ 
               {/* Payment method selection */}
-              <div className="flex flex-col lg:flex-row gap-3 mt-4">
-                {/* Stripe */}
-                <div
-                  onClick={() => setMethod("stripe")}
-                  className={`flex items-center gap-3 border rounded-lg p-2 px-3 cursor-pointer transition relative hover:shadow-lg hover:scale-105 duration-200 ${
-                    method === "stripe"
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900"
-                      : "border-gray-200 dark:border-gray-700"
-                  }`}
-                >
-                  {method === "stripe" && (
-                    <FiCheckCircle className="text-green-500 mr-2" />
-                  )}
-                  <span
-                    className={`min-w-3.5 h-3.5 border rounded-full flex items-center justify-center ${
-                      method === "stripe" ? "bg-green-400 border-green-400" : ""
-                    }`}
-                  ></span>
-                  <img
-                    className="h-5 mx-4"
-                    src={assets.stripe_logo}
-                    alt="Stripe"
-                  />
-                </div>
-                {/* Razorpay */}
-                <div
-                  onClick={() => setMethod("razorpay")}
-                  className={`flex items-center gap-3 border rounded-lg p-2 px-3 cursor-pointer transition relative hover:shadow-lg hover:scale-105 duration-200 ${
-                    method === "razorpay"
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900"
-                      : "border-gray-200 dark:border-gray-700"
-                  }`}
-                >
-                  {method === "razorpay" && (
-                    <FiCheckCircle className="text-green-500 mr-2" />
-                  )}
-                  <span
-                    className={`min-w-3.5 h-3.5 border rounded-full flex items-center justify-center ${
-                      method === "razorpay"
-                        ? "bg-green-400 border-green-400"
-                        : ""
-                    }`}
-                  ></span>
-                  <img
-                    className="h-5 mx-4"
-                    src={assets.razorpay_logo}
-                    alt="Razorpay"
-                  />
-                </div>
-                {/* COD */}
-                <div
-                  onClick={() => setMethod("cod")}
-                  className={`flex items-center gap-3 border rounded-lg p-2 px-3 cursor-pointer transition relative hover:shadow-lg hover:scale-105 duration-200 ${
-                    method === "cod"
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900"
-                      : "border-gray-200 dark:border-gray-700"
-                  }`}
-                >
-                  {method === "cod" && (
-                    <FiCheckCircle className="text-green-500 mr-2" />
-                  )}
-                  <span
-                    className={`min-w-3.5 h-3.5 border rounded-full flex items-center justify-center ${
-                      method === "cod" ? "bg-green-400 border-green-400" : ""
-                    }`}
-                  ></span>
-                  <span className="text-gray-500 dark:text-gray-300 text-sm font-medium mx-4">
-                    CASH ON DELIVERY
-                  </span>
-                </div>
-              </div>
-              <div className="w-full text-end mt-8">
-                <button type="submit" className="secondary-btn">
-                  PLACE ORDER
-                </button>
-              </div>
-            </div>
+                <PaymentMethod setMethod={setMethod} method={method}/>
           </div>
         </form>
       </div>

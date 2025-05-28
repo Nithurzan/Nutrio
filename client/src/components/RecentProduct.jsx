@@ -4,6 +4,7 @@ import { ShopContext } from "../context/ShopContext";
 import ProductItems from "./ProductItems";
 import { useNavigate } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
+import { RecentProductSkeleton } from "../utilitty/Skeleton";
 
 const RecentProduct = () => {
   const { products } = useContext(ShopContext);
@@ -14,6 +15,8 @@ const RecentProduct = () => {
   useEffect(() => {
     setLatestProducts(products.slice(0, 3));
   }, [products]);
+
+  if (!products.length) return <RecentProductSkeleton/>;
 
   return (
     <section>

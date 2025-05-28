@@ -1,6 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { FiEdit, FiLogOut, FiPlus, FiTrash2, FiHeart } from "react-icons/fi";
+import useLoadingTimer from "../utilitty/useLoadingTimer";
+import Skeletons from "../utilitty/Skeleton";
 
 const Profile = () => {
   const {
@@ -14,11 +16,16 @@ const Profile = () => {
     wishlist,
     fetchWishlist,
   } = useContext(ShopContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadOrderData();
     fetchWishlist();
   }, [token]);
+
+  
+  useLoadingTimer(setLoading, 1200);
+  if (loading) return <Skeletons type="profile" />;
 
   const orderDatas = orderData.slice(0, 5);
 
@@ -217,17 +224,6 @@ const Profile = () => {
                 ))
               )}
             </ul>
-          </div>
-
-          {/* Testimonial/Quote Card */}
-          <div className="w-full max-w-md mx-auto mt-8 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow-xl border border-primary/10 dark:border-secondary/20 p-5 text-center">
-            <p className="text-primary dark:text-secondary font-semibold text-base">
-              “Nutrio makes managing my orders and wishlist so easy. Love the
-              experience!”
-            </p>
-            <span className="text-gray-500 dark:text-gray-400 text-xs">
-              — Loyal Customer
-            </span>
           </div>
         </div>
       </div>

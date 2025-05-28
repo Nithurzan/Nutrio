@@ -30,20 +30,25 @@ export const HeroSkeleton = () => (
 
 //skeleton for category
 export const CategorySkeleton = () => (
-  <section>
-    <div className="pt-12 pb-20">
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-10 mt-10">
-        {[...Array(4)].map((_, idx) => (
-          <div
-            key={idx}
-            className="w-full flex flex-col items-center justify-center gap-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-3xl px-5 py-4 min-h-[80px] shadow-[0_0_22px_0_rgba(0,0,0,0.10)] dark:shadow-[0_0_22px_0_rgba(255,255,255,0.08)] animate-pulse"
-          >
-            <div className="h-5 w-24 bg-gray-200 dark:bg-gray-700 rounded"></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+<section className="my-20 animate-pulse">
+        <div className="text-center mb-10">
+          <div className="h-8 w-48 bg-gray-300 dark:bg-gray-700 rounded mx-auto mb-2" />
+          <div className="h-4 w-60 bg-gray-200 dark:bg-gray-600 rounded mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div
+              key={i}
+              className="w-full h-40 bg-gray-200 dark:bg-gray-700 rounded-xl shadow"
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-10">
+          <div className="h-10 w-48 bg-primary/40 dark:bg-secondary/40 rounded-xl" />
+        </div>
+      </section>
 );
 
 //skeleton for recent product
@@ -57,164 +62,224 @@ export const ProductCardSkeleton = () => (
 );
 
 export const RecentProductSkeleton = () => (
-  <section className="py-12 px-2 sm:px-0">
-    <div className="container mx-auto">
-      <div className="flex flex-col items-center">
-        <div className="h-8 w-48 bg-gray-200 dark:bg-gray-700 rounded mb-6 animate-pulse"></div>
-      </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-10 mt-10">
-        {[...Array(4)].map((_, idx) => (
-          <ProductCardSkeleton key={idx} />
-        ))}
-      </div>
-      <div className="flex justify-center mt-10">
-        <div className="h-12 w-40 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse"></div>
-      </div>
-    </div>
-  </section>
+  <section className="mx-auto py-16 px-2 sm:px-0 animate-pulse">
+        <div className="text-center mb-12">
+          <div className="h-8 w-60 bg-gray-300 dark:bg-gray-700 rounded mx-auto mb-2" />
+          <div className="h-4 w-72 bg-gray-200 dark:bg-gray-600 rounded mx-auto" />
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-8 mt-8">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div
+              key={index}
+              className="w-64 h-[320px] bg-gray-200 dark:bg-gray-700 rounded-xl shadow"
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-14">
+          <div className="h-10 w-48 bg-primary/40 dark:bg-secondary/40 rounded-xl" />
+        </div>
+      </section>
 );
 
 //skeleton for our policy
 export const OurPolicySkeleton = () => (
-  <section className="bg-gradient-to-br from-primary/5 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-    <div className="container flex flex-col sm:flex-row justify-around gap-10 sm:gap-4 text-center">
-      {[...Array(3)].map((_, idx) => (
-        <div
-          key={idx}
-          className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 px-6 py-8 flex-1 mx-auto max-w-xs transition-all duration-300 hover:shadow-xl animate-pulse"
-        >
-          {/* Circular Wrapper for Image Skeleton */}
-          <div className="w-20 h-20 m-auto mb-5 bg-primary/10 dark:bg-secondary/30 border-2 border-primary/20 dark:border-secondary/40 rounded-full flex items-center justify-center shadow-[0_0_22px_0_rgba(0,0,0,0.10)] dark:shadow-[0_0_22px_0_#81C784]">
-            <div className="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-          </div>
-          <div className="h-6 w-24 bg-gray-200 dark:bg-gray-700 rounded mx-auto mb-2"></div>
-          <div className="h-4 w-32 bg-gray-200 dark:bg-gray-700 rounded mx-auto"></div>
+  <section className="my-20 animate-pulse">
+        <div className="text-center mb-10">
+          <div className="h-8 w-48 bg-gray-300 dark:bg-gray-700 mx-auto rounded mb-2" />
+          <div className="h-4 w-64 bg-gray-200 dark:bg-gray-600 mx-auto" />
         </div>
-      ))}
-    </div>
-  </section>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {Array.from({ length: 4 }).map((_, idx) => (
+            <div
+              key={idx}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border border-gray-100 dark:border-gray-800"
+            >
+              <div className="w-10 h-10 bg-gray-300 dark:bg-gray-700 rounded-full mb-4" />
+              <div className="h-4 w-24 bg-gray-300 dark:bg-gray-600 rounded mb-2" />
+              <div className="h-3 w-32 bg-gray-200 dark:bg-gray-700 rounded" />
+            </div>
+          ))}
+        </div>
+      </section>
 );
 
 
 
 //skeleton for newsletter
 export const NewsletterSkeleton = () => (
-  <div className="container text-center py-12 mt-10 rounded-2xl bg-gradient-to-br from-primary/10 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 shadow-lg animate-pulse">
-    {/* Title Skeleton */}
-    <div className="h-10 w-2/3 max-w-md bg-gray-200 dark:bg-gray-700 rounded mx-auto mb-4"></div>
-    {/* Subtitle Skeleton */}
-    <div className="h-5 w-1/2 max-w-xs bg-gray-200 dark:bg-gray-700 rounded mx-auto mb-8"></div>
-    {/* Form Skeleton */}
-    <div className="w-full max-w-xl flex flex-col sm:flex-row items-center gap-3 mx-auto my-8 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 bg-white dark:bg-gray-800 shadow">
-      <div className="relative w-full flex-1">
-        <div className="h-12 w-full bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+  <div className="container flex justify-center">
+        <div className="w-full max-w-2xl text-center py-12 mt-10 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-2xl border border-primary/20 dark:border-secondary/20 flex flex-col items-center animate-pulse">
+          <div className="w-14 h-14 bg-gray-300 dark:bg-gray-700 rounded-full mb-4" />
+          <div className="w-3/4 h-6 bg-gray-300 dark:bg-gray-700 rounded mb-2" />
+          <div className="w-1/2 h-6 bg-gray-300 dark:bg-gray-700 rounded mb-4" />
+          <div className="w-4/5 h-4 bg-gray-300 dark:bg-gray-700 rounded mb-6" />
+
+          <div className="w-full max-w-xl flex flex-col sm:flex-row items-center gap-3 mx-auto my-8 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2 bg-white dark:bg-gray-800 shadow">
+            <div className="relative w-full flex-1">
+              <div className="w-full h-12 bg-gray-200 dark:bg-gray-700 rounded-lg" />
+            </div>
+            <div className="w-32 h-12 bg-primary/50 dark:bg-secondary/50 rounded-lg" />
+          </div>
+        </div>
       </div>
-      <div className="h-12 w-32 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-    </div>
-  </div>
 );
 
+export const TestimonialsSkeleton = () => (
+  <section className="my-20 animate-pulse">
+        <div className="text-center mb-10">
+          <div className="h-8 w-72 bg-gray-300 dark:bg-gray-700 mx-auto rounded mb-2" />
+          <div className="h-4 w-64 bg-gray-200 dark:bg-gray-600 mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {Array.from({ length: 3 }).map((_, idx) => (
+            <div
+              key={idx}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 p-8 flex flex-col items-center text-center"
+            >
+              <div className="w-20 h-20 rounded-full bg-gray-300 dark:bg-gray-700 mb-4" />
+              <div className="flex gap-1 mb-2">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-4 h-4 bg-gray-300 dark:bg-gray-700 rounded"
+                  />
+                ))}
+              </div>
+              <div className="h-3 w-64 bg-gray-300 dark:bg-gray-700 rounded mb-2" />
+              <div className="h-3 w-56 bg-gray-300 dark:bg-gray-700 rounded mb-4" />
+              <div className="h-4 w-32 bg-gray-400 dark:bg-gray-600 rounded" />
+            </div>
+          ))}
+        </div>
+      </section>
+)
+
+
+export const BlogHighlightsSkeleton = () => (
+  <section className="my-20 animate-pulse">
+        <div className="text-center mb-10">
+          <div className="h-8 w-52 bg-gray-300 dark:bg-gray-700 mx-auto rounded mb-2" />
+          <div className="h-4 w-72 bg-gray-200 dark:bg-gray-600 mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {Array.from({ length: 3 }).map((_, idx) => (
+            <div
+              key={idx}
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden"
+            >
+              <div className="w-full h-48 bg-gray-300 dark:bg-gray-700" />
+              <div className="p-6 flex flex-col gap-3">
+                <div className="h-3 w-24 bg-gray-300 dark:bg-gray-600 rounded" />
+                <div className="h-4 w-3/4 bg-gray-400 dark:bg-gray-500 rounded" />
+                <div className="h-3 w-full bg-gray-300 dark:bg-gray-600 rounded" />
+                <div className="h-3 w-5/6 bg-gray-300 dark:bg-gray-600 rounded" />
+                <div className="h-3 w-24 bg-gray-300 dark:bg-gray-600 rounded mt-4" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+)
 //skeleton for footer
 export const FooterSkeleton = () => (
-  <footer className="relative bg-gradient-to-t from-primary/10 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 mt-10 animate-pulse">
-    {/* Accent bar */}
-    <div className="h-1 w-full bg-primary dark:bg-secondary mb-2" />
-    <div className="container text-gray-700 dark:text-gray-300 py-10">
-      {/* Footer Content */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-14 gap-y-10 my-10 text-sm sm:text-left text-center">
-        {/* Company Info */}
-        <div className="flex flex-col items-center md:items-start">
-          <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-            <div className="h-9 w-9 bg-gray-200 dark:bg-gray-700 rounded-full" />
-            <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded" />
+      <div className="relative bg-gradient-to-t from-primary/10 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 mt-10">
+        <div className="h-1 w-full bg-primary dark:bg-secondary mb-2" />
+        <div className="container flex justify-center animate-pulse">
+          <div className="w-full max-w-7xl backdrop-blur-lg px-6 py-10">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-14 gap-y-10 my-10 text-sm">
+              {/* Column Placeholder */}
+              {Array.from({ length: 4 }).map((_, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center md:items-start space-y-3"
+                >
+                  <div className="w-3/4 h-5 bg-gray-300 dark:bg-gray-700 rounded" />
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-2/3 h-4 bg-gray-200 dark:bg-gray-600 rounded"
+                    />
+                  ))}
+                  {idx === 3 && (
+                    <>
+                      {/* Social Media Icons Placeholder */}
+                      <div className="flex gap-4 mt-2">
+                        {Array.from({ length: 4 }).map((_, i) => (
+                          <div
+                            key={i}
+                            className="w-10 h-10 rounded-full bg-primary/30 dark:bg-secondary/30"
+                          />
+                        ))}
+                      </div>
+                      {/* Contact Info */}
+                      <div className="w-full flex flex-col gap-2 mt-4">
+                        <div className="w-5/6 h-3 bg-gray-200 dark:bg-gray-600 rounded" />
+                        <div className="w-2/3 h-3 bg-gray-200 dark:bg-gray-600 rounded" />
+                        <div className="w-3/4 h-3 bg-gray-200 dark:bg-gray-600 rounded" />
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="w-full flex justify-center">
+              <div className="border-2 border-primary/20 dark:border-secondary/20 rounded-full w-1/2 my-4" />
+            </div>
+
+            <div className="py-5 text-xs text-center text-gray-400 dark:text-gray-600">
+              <div className="w-1/3 h-3 bg-gray-300 dark:bg-gray-700 mx-auto rounded" />
+            </div>
           </div>
-          <div className="h-4 w-40 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          <div className="h-4 w-32 bg-gray-200 dark:bg-gray-700 rounded"></div>
-        </div>
-        {/* Quick Links */}
-        <div className="flex flex-col items-center md:items-start">
-          <div className="h-5 w-28 bg-gray-200 dark:bg-gray-700 rounded mb-5"></div>
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          ))}
-        </div>
-        {/* Customer Support */}
-        <div className="flex flex-col items-center md:items-start">
-          <div className="h-5 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-5"></div>
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-4 w-28 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          ))}
-        </div>
-        {/* Social Media */}
-        <div className="flex flex-col items-center md:items-start">
-          <div className="h-5 w-28 bg-gray-200 dark:bg-gray-700 rounded mb-5"></div>
-          <div className="flex gap-4 justify-center md:justify-start mb-4">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-10 w-10 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-            ))}
-          </div>
-          <div className="h-4 w-40 bg-gray-200 dark:bg-gray-700 rounded mb-1"></div>
-          <div className="h-4 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-1"></div>
-          <div className="h-4 w-36 bg-gray-200 dark:bg-gray-700 rounded"></div>
         </div>
       </div>
-      {/* Footer Bottom */}
-      <div>
-        <hr className="border-gray-300 dark:border-gray-700" />
-        <div className="py-5 flex flex-col items-center">
-          <div className="h-4 w-48 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-        </div>
-      </div>
-    </div>
-  </footer>
 );
 
 
 
 // Main skeleton for the Products page
 export const ProductsSkeleton = () => (
-  <section aria-labelledby="all-collections-title">
-    <div className="container mx-auto px-4 py-16 space-y-16">
-      {/* Title skeleton */}
-      <div className="text-center">
-        <div className="h-8 w-64 bg-gray-200 dark:bg-gray-700 rounded mx-auto mb-8 animate-pulse"></div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Filters skeleton */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg dark:shadow-[0_0_15px_rgba(255,255,255,0.1)] h-fit animate-pulse">
-          <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
-          <div className="space-y-6">
-            <div>
-              <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
+      <section className="my-20 animate-pulse">
+        <div className="container mx-auto px-4 py-16 space-y-16">
+          {/* Title Skeleton */}
+          <div className="text-center">
+            <div className="h-10 w-60 bg-gray-300 dark:bg-gray-700 mx-auto rounded mb-4" />
+            <div className="h-4 w-72 bg-gray-200 dark:bg-gray-600 mx-auto rounded" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Filter Sidebar Skeleton */}
+            <div className="space-y-6">
+              <div className="h-6 w-32 bg-gray-300 dark:bg-gray-700 rounded" />
               {[...Array(5)].map((_, i) => (
-                <div key={i} className="flex items-center gap-2 mb-2">
-                  <div className="w-4 h-4 bg-gray-200 dark:bg-gray-700 rounded" />
-                  <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded" />
+                <div key={i} className="h-4 w-40 bg-gray-300 dark:bg-gray-700 rounded" />
+              ))}
+              <div className="h-8 w-32 bg-gray-400 dark:bg-gray-600 rounded mt-4" />
+            </div>
+
+            {/* Product Cards Skeleton */}
+            <div className="col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl shadow border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4"
+                >
+                  <div className="h-48 bg-gray-300 dark:bg-gray-700 rounded mb-4" />
+                  <div className="h-4 w-3/4 bg-gray-300 dark:bg-gray-600 rounded mb-2" />
+                  <div className="h-3 w-1/2 bg-gray-200 dark:bg-gray-600 rounded mb-3" />
+                  <div className="h-4 w-1/3 bg-gray-300 dark:bg-gray-600 rounded" />
                 </div>
               ))}
             </div>
-            <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded mt-4"></div>
           </div>
         </div>
-        {/* Products grid skeleton */}
-        <div className="col-span-3">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-            <div className="h-4 w-32 bg-gray-200 dark:bg-gray-700 rounded"></div>
-            <div className="flex items-center gap-2">
-              <div className="h-4 w-12 bg-gray-200 dark:bg-gray-700 rounded"></div>
-              <div className="h-8 w-32 bg-gray-200 dark:bg-gray-700 rounded"></div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" aria-busy="true" aria-live="polite">
-            {[...Array(8)].map((_, idx) => (
-              <ProductCardSkeleton key={idx} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+      </section>
+    );
 
 
 //skeleton for the about page
@@ -283,164 +348,181 @@ export const ContactSkeleton = () => (
 
 //Skeleton for cart
 const CartItemSkeleton = () => (
-  <div className="py-4 px-3 sm:px-6 rounded-xl shadow-sm bg-white dark:bg-gray-800 flex flex-col sm:flex-row items-center gap-6 animate-pulse border border-gray-100 dark:border-gray-700 mb-4">
-    <div className="bg-gray-200 dark:bg-gray-700  rounded-lg p-2 w-20 h-20 sm:w-24 sm:h-24" />
-    <div className="flex-1 flex flex-col items-center gap-2 w-full">
-      <div className="h-5 w-32 bg-gray-200 dark:bg-gray-700 rounded" />
-      <div className="h-4 w-20 bg-gray-200 dark:bg-gray-700 rounded" />
-      <div className="h-6 w-24 bg-gray-200 dark:bg-gray-700 rounded" />
-    </div>
-    <div className="flex flex-col items-center gap-2 min-w-[70px]">
-      <div className="flex items-center border rounded-lg bg-gray-100 dark:bg-gray-700 px-2 py-1">
-        <div className="h-6 w-6 bg-gray-200 dark:bg-gray-700 rounded mx-1" />
-        <div className="h-6 w-10 bg-gray-200 dark:bg-gray-700 rounded mx-1" />
-        <div className="h-6 w-6 bg-gray-200 dark:bg-gray-700 rounded mx-1" />
-        <div className="h-6 w-6 bg-gray-200 dark:bg-gray-700 rounded mx-1" />
+  <div className="py-6 px-4 sm:px-8 rounded-2xl shadow-xl bg-white dark:bg-gray-900 flex flex-col sm:flex-row items-center gap-8 border border-gray-100 dark:border-gray-800">
+    <div className="bg-gray-300 dark:bg-gray-700 rounded-lg p-2 shadow w-24 h-24" />
+    <div className="flex-1 flex flex-col items-start w-full space-y-2">
+      <div className="h-6 w-3/4 bg-gray-300 dark:bg-gray-700 rounded" />
+      <div className="h-4 w-1/2 bg-gray-300 dark:bg-gray-700 rounded" />
+      <div className="flex items-center gap-4">
+        <div className="h-6 w-12 bg-gray-300 dark:bg-gray-700 rounded" />
+        <div className="h-4 w-8 bg-gray-300 dark:bg-gray-700 rounded" />
+        <div className="h-4 w-20 bg-gray-300 dark:bg-gray-700 rounded" />
       </div>
+    </div>
+    <div className="flex flex-col items-center gap-2 min-w-[90px]">
+      <div className="flex items-center border rounded-lg bg-gray-300 dark:bg-gray-700 px-2 py-1 shadow w-28 h-10" />
     </div>
   </div>
 );
 
 const CartTotalSkeleton = () => (
-  <div className="w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-5 sm:p-8 animate-pulse mt-8">
-    <div className="h-8 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-6"></div>
-    <div className="flex flex-col gap-4 text-sm sm:text-base">
-      <div className="flex justify-between items-center py-1">
-        <span className="h-5 w-20 bg-gray-200 dark:bg-gray-700 rounded"></span>
-        <span className="h-5 w-12 bg-gray-200 dark:bg-gray-700 rounded"></span>
+  <div className="w-full bg-gradient-to-br from-primary/10 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-7 sm:p-10 flex flex-col items-center animate-pulse">
+      <div className="flex flex-col items-center mb-6">
+        <div className="w-10 h-10 bg-primary dark:bg-secondary mb-2 rounded-full" />
+        <div className="h-8 w-40 bg-gray-300 dark:bg-gray-700 rounded-md" />
       </div>
-      <div className="flex justify-between items-center py-1">
-        <span className="h-5 w-28 bg-gray-200 dark:bg-gray-700 rounded"></span>
-        <span className="h-5 w-12 bg-gray-200 dark:bg-gray-700 rounded"></span>
+      <div className="flex flex-col gap-4 text-base w-full max-w-md">
+        <div className="flex justify-between items-center py-1">
+          <div className="h-5 w-20 bg-gray-300 dark:bg-gray-700 rounded" />
+          <div className="h-5 w-12 bg-gray-300 dark:bg-gray-700 rounded" />
+        </div>
+        <div className="flex justify-between items-center py-1">
+          <div className="h-5 w-28 bg-gray-300 dark:bg-gray-700 rounded" />
+          <div className="h-5 w-12 bg-gray-300 dark:bg-gray-700 rounded" />
+        </div>
+        <hr className="border-2 border-primary/30 dark:border-secondary/30 my-2 rounded" />
+        <div className="flex justify-between items-center py-2">
+          <div className="h-6 w-24 bg-gray-300 dark:bg-gray-700 rounded" />
+          <div className="h-6 w-20 bg-primary dark:bg-secondary rounded" />
+        </div>
       </div>
-      <hr className="border-2 border-primary/30 dark:border-secondary/30 my-2 rounded" />
-      <div className="flex justify-between items-center py-2">
-        <span className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded"></span>
-        <span className="h-7 w-16 bg-gray-200 dark:bg-gray-700 rounded"></span>
-      </div>
+      <div className="mt-8 w-48 h-12 bg-primary dark:bg-secondary rounded-full" />
+      <div className="mt-4 h-4 w-60 bg-gray-300 dark:bg-gray-700 rounded text-center" />
     </div>
-  </div>
 );
 
 export const CartSkeleton = () => (
-  <section>
-    <div className="container min-h-[60vh] dark:bg-gray-900 pt-10">
-      <div className="text-2xl mb-6 h-8 w-40 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
-      <div>
-        <CartItemSkeleton />
-        <CartItemSkeleton />
-        <CartItemSkeleton />
-      </div>
-      <div className="flex justify-end my-12">
-        <div className="w-full sm:w-[450px]">
-          <CartTotalSkeleton />
-          <div className="w-full text-end mt-6">
-            <div className="h-12 w-full sm:w-52 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+  <section className="min-h-[70vh] py-10 bg-gradient-to-br from-primary/5 via-white to-secondary/5 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="container">
+          <div className="text-center text-2xl mb-8 animate-pulse">
+            <div className="h-10 w-40 bg-gray-300 dark:bg-gray-700 rounded mx-auto" />
+          </div>
+
+          <div className="flex flex-col gap-8">
+            {/* Show 3 skeleton cart items */}
+            {[1, 2, 3].map((i) => (
+              <CartItemSkeleton key={i} />
+            ))}
+          </div>
+
+          <div className="flex justify-end my-12">
+            <div className="w-full sm:w-[450px]">
+              <CartTotalSkeleton />
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 );
 
 
 //skeleton for order
-export const OrderCardSkeleton = () => (
-  <div className="relative py-4 px-2 xs:px-3 sm:px-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm bg-white dark:bg-gray-900 flex flex-col xs:flex-row md:flex-row items-center gap-4 xs:gap-6 animate-pulse mb-4">
-    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg shadow object-cover border border-gray-200 dark:border-gray-700 bg-gray-200 dark:bg-gray-800" />
-    <div className="flex-2 flex flex-col items-start w-full xs:w-auto gap-2">
-      <div className="h-5 w-32 bg-gray-200 dark:bg-gray-700 rounded mb-1"></div>
-      <div className="flex gap-4 items-center">
-        <div className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
-        <div className="h-4 w-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
-      </div>
-      <div className="h-4 w-28 bg-gray-200 dark:bg-gray-700 rounded"></div>
-      <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded"></div>
-    </div>
-    <div className="flex flex-col items-end gap-2 min-w-[120px] w-full xs:w-auto">
-      <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
-        <div className="h-4 w-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
-      </div>
-      <div className="h-9 w-28 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-    </div>
-  </div>
-);
-
 export const OrdersSkeleton = () => (
-  <section>
-    <div className="container pt-16">
-      <div className="text-2xl mb-6 h-8 w-40 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
-      <div className="flex flex-col gap-6">
-        {[...Array(4)].map((_, idx) => (
-          <OrderCardSkeleton key={idx} />
-        ))}
+  <div className="container pt-16">
+        <div className="text-2xl mb-6 animate-pulse bg-gray-300 dark:bg-gray-700 h-10 w-36 rounded"></div>
+
+        <div className="flex flex-col gap-8">
+          {[1, 2, 3].map((_, i) => (
+            <div
+              key={i}
+              className="flex flex-col sm:flex-row items-center gap-8 p-6 rounded-2xl shadow-xl bg-white/90 dark:bg-gray-900/90 border border-primary/10 dark:border-secondary/20"
+            >
+              {/* Left icon + image placeholder */}
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+              </div>
+
+              {/* Middle text placeholders */}
+              <div className="flex-1 flex flex-col w-full gap-2">
+                <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-1/2 animate-pulse"></div>
+                <div className="flex gap-4">
+                  <div className="h-5 bg-gray-300 dark:bg-gray-700 rounded w-20 animate-pulse"></div>
+                  <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-12 animate-pulse"></div>
+                </div>
+                <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/3 animate-pulse"></div>
+                <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-2/3 animate-pulse"></div>
+                <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/2 animate-pulse"></div>
+              </div>
+
+              {/* Right status & button placeholders */}
+              <div className="flex flex-col items-end gap-3 min-w-[120px] w-full sm:w-auto">
+                <div className="h-6 rounded-full bg-gray-300 dark:bg-gray-700 w-24 animate-pulse"></div>
+                <div className="h-8 rounded-full bg-gray-300 dark:bg-gray-700 w-32 animate-pulse"></div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
 );
 
 //skeleton for the place order
 export const PaymentSkelton = () => (
-   <div className="flex flex-col lg:flex-row gap-3 mt-4">
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 border rounded-lg p-2 px-3 w-full lg:w-auto bg-gray-100 dark:bg-gray-700"
-                >
-                  <div className="h-5 w-5 rounded-full bg-gray-200 dark:bg-gray-600"></div>
-                  <div className="h-5 w-20 bg-gray-200 dark:bg-gray-600 rounded"></div>
-                </div>
-              ))}
+    <div className="mt-12 w-full max-w-md mx-auto bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-6 sm:p-8 animate-pulse">
+      {/* Title placeholder */}
+      <div className="h-10 w-48 bg-gray-300 dark:bg-gray-700 rounded mb-8 mx-auto" />
+
+      {/* Payment options placeholders */}
+      <ul className="flex flex-col gap-6">
+        {[1, 2].map((_, i) => (
+          <li key={i} className="flex flex-col">
+            <div className="flex items-center gap-4 border border-gray-300 dark:border-gray-700 rounded-lg p-4">
+              <div className="w-6 h-6 rounded-full bg-gray-300 dark:bg-gray-700" />
+              <div className="h-5 w-40 bg-gray-300 dark:bg-gray-700 rounded" />
             </div>
+          </li>
+        ))}
+      </ul>
+
+      {/* Button placeholder */}
+      <div className="w-full text-end mt-10">
+        <div className="inline-block bg-primary dark:bg-secondary rounded-full w-40 h-12" />
+      </div>
+
+      {/* Testimonial/Quote Card placeholder */}
+      <div className="w-full mx-auto mt-8 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow border border-primary/10 dark:border-secondary/20 p-5 text-center">
+        <div className="h-6 w-72 bg-gray-300 dark:bg-gray-700 rounded mx-auto mb-3" />
+        <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mx-auto" />
+      </div>
+    </div>
 );
 
 
 export const PlaceOrderSkeleton = () => (
-  <section>
-    <div className="container">
-      <form className="flex flex-col md:flex-row justify-between gap-8 pt-5 sm:pt-14 min-h-[80vh] dark:bg-gray-900 animate-pulse">
-        {/* Left side - Delivery Info */}
-        <div className="flex flex-col gap-4 w-full md:w-[50%] lg:w-[480px] bg-white dark:bg-gray-800 rounded-xl shadow p-6">
-          <div className="h-8 w-48 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          </div>
-          <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-            <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-          </div>
-          <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded"></div>
-        </div>
-        {/* Right side - CartTotal & Payment */}
-        <div className="flex-1 flex flex-col items-center mt-8 md:mt-0">
-          <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-xl shadow p-4 mb-8">
-            {/* CartTotal Skeleton */}
-            <CartTotalSkeleton/>
-          </div>
-          <div className="w-full max-w-md">
-            <div className="h-8 w-48 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
-            {/* Payment method skeletons */}
-           <PaymentSkelton/>
-            <div className="w-full text-end mt-8">
-              <div className="h-12 w-full sm:w-52 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+<section>
+      <div className="container">
+        <div className="flex flex-col md:flex-row justify-between gap-8 pt-5 sm:pt-14 min-h-[80vh]">
+          {/* Left side - Delivery Info Skeleton */}
+          <div className="flex flex-col gap-4 w-full md:w-[50%] lg:w-[480px] bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-8 animate-pulse">
+            {/* Title */}
+            <div className="h-10 w-full bg-gray-300 dark:bg-gray-700 rounded mb-6" />
+            {/* Name inputs */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded flex-1" />
+              <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded flex-1" />
+            </div>
+            {/* Other inputs */}
+            <div className="space-y-4 mt-4">
+              {[...Array(7)].map((_, i) => (
+                <div key={i} className="h-10 bg-gray-300 dark:bg-gray-700 rounded" />
+              ))}
             </div>
           </div>
+
+          {/* Right side - Cart Total Skeleton */}
+          <div className="flex-1 flex flex-col items-center mt-8 md:mt-0 space-y-6">
+            {/* cart total */}
+            <CartTotalSkeleton/>
+
+            {/* Payment Method Skeleton */}
+            <PaymentSkelton/>
+          </div>
         </div>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
 );
 
 //skeleton for product details
-const ProductDetailsSkeleton = () => (
+export const ProductDetailsSkeleton = () => (
   <section>
     <div className="container mt-8 px-4 py-10 md:py-16 animate-pulse">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
@@ -515,6 +597,97 @@ const ProductDetailsSkeleton = () => (
   </section>
 );
 
+export const WishlistSkeleton = () => (
+  <section className="max-w-5xl mx-auto mt-10 p-4">
+        <div className="text-xl text-center sm:text-2xl my-3">
+          <div className="h-8 w-40 mx-auto rounded bg-gray-300 dark:bg-gray-700 animate-pulse"></div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {[...Array(6)].map((_, idx) => (
+            <div
+              key={idx}
+              className="relative bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/10 dark:border-secondary/20 overflow-hidden flex flex-col items-center transition-transform duration-200"
+            >
+              {/* Image Placeholder */}
+              <div className="w-full h-48 bg-gray-300 dark:bg-gray-700 rounded-t-2xl animate-pulse"></div>
+
+              {/* Text Placeholder */}
+              <div className="flex-1 flex flex-col items-center justify-center p-4 w-full gap-2">
+                <div className="h-6 w-3/4 rounded bg-gray-300 dark:bg-gray-700 animate-pulse"></div>
+                <div className="h-5 w-1/3 rounded bg-primary/50 dark:bg-blue-700 animate-pulse"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+)
+
+// profile ///
+export const ProfileSkeleton = () => (
+  <section className="max-w-6xl mx-auto mt-10 p-4 animate-pulse">
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Left Panel Skeleton */}
+        <div className="w-full md:w-1/3 flex flex-col gap-6">
+          {/* User Info Skeleton */}
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-2xl border flex flex-col items-center">
+            <div className="relative w-20 h-20 rounded-full bg-gray-300 dark:bg-gray-700 mb-3"></div>
+            <div className="h-4 w-24 bg-gray-300 dark:bg-gray-700 rounded mb-2"></div>
+            <div className="h-3 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-3"></div>
+            <div className="h-3 w-20 bg-gray-300 dark:bg-gray-700 rounded"></div>
+          </div>
+
+          {/* Address List Skeleton */}
+          <div className="bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl border">
+            <div className="h-4 w-24 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+            <ul className="space-y-3">
+              {[1, 2].map((i) => (
+                <li
+                  key={i}
+                  className="h-10 bg-gray-200 dark:bg-gray-700 rounded-xl"
+                ></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Account Actions Skeleton */}
+          <div className="flex justify-between mt-2">
+            <div className="h-3 w-20 bg-gray-300 dark:bg-gray-700 rounded"></div>
+            <div className="h-3 w-24 bg-gray-300 dark:bg-gray-700 rounded"></div>
+          </div>
+        </div>
+
+        {/* Right Panel Skeleton */}
+        <div className="w-full md:w-2/3 flex flex-col gap-8">
+          {/* Recent Orders Skeleton */}
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-2xl border">
+            <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[1, 2, 3, 4].map((i) => (
+                <li
+                  key={i}
+                  className="h-24 bg-gray-200 dark:bg-gray-700 rounded-xl"
+                ></li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Wishlist Skeleton */}
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-2xl border">
+            <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded mb-4"></div>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[1, 2].map((i) => (
+                <li
+                  key={i}
+                  className="h-16 bg-gray-200 dark:bg-gray-700 rounded-xl"
+                ></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+)
 
 
 //skeleton for the home page
@@ -524,6 +697,8 @@ export const HomeSkeleton = () => (
   <CategorySkeleton/>
   <RecentProductSkeleton/>
   <OurPolicySkeleton/>
+  <TestimonialsSkeleton />
+  <BlogHighlightsSkeleton/>
  
   </>
 )
@@ -553,6 +728,10 @@ const Skeletons = ({ type }) => {
       return <PlaceOrderSkeleton/>;
     case "productDetails":
       return <ProductDetailsSkeleton/>;
+    case "wishlist":
+      return <WishlistSkeleton/>
+    case "profile":
+      return <ProfileSkeleton/>
     default:
       return <div className="animate-pulse h-12 bg-gray-200 dark:bg-gray-700 rounded w-full" />;
   }

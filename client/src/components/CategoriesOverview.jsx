@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { color } from "framer-motion";
+import Skeletons, { CategorySkeleton } from "../utilitty/Skeleton";
+
 
 const CategoriesOverview = () => {
   const { setCategory, categories, navigate } = useContext(ShopContext);
@@ -14,7 +15,7 @@ const CategoriesOverview = () => {
     navigate(`/products/`);
   };
 
-  if (!categories?.length) return null;
+  if (!categories?.length) return <CategorySkeleton />;
 
   return (
     <section className="my-20">
