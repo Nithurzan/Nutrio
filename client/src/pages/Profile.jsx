@@ -27,7 +27,7 @@ const Profile = () => {
   useLoadingTimer(setLoading, 1200);
   if (loading) return <Skeletons type="profile" />;
 
-  const orderDatas = orderData.slice(0, 5);
+  const orderDatas = orderData.slice(0, 4);
 
   // Dummy data for demonstration
   const addresses = [
