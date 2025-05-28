@@ -26,7 +26,7 @@ const NewsLetter = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full max-w-2xl text-center py-12 mt-10 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-2xl border border-primary/20 dark:border-secondary/20 flex flex-col items-center"
+        className="w-full max-w-2xl text-center px-8 py-12 mt-10 rounded-2xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-2xl border border-primary/20 dark:border-secondary/20 flex flex-col items-center"
       >
         <FiMail className="w-14 h-14 text-primary dark:text-secondary mb-4" />
         <p className="text-3xl font-bold font-averia text-gray-800 dark:text-gray-100">
