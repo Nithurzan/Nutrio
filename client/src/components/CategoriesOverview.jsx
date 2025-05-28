@@ -49,7 +49,7 @@ const CategoriesOverview = () => {
                   backgroundPosition: "center",
                   WebkitBackgroundClip: "text",
                   backgroundClip: "text",
-                  WebkitTextStroke: "3px black", // Black outline around each letter
+                  WebkitTextStroke: "2px black", // Black outline around each letter
                 }}
               >
                 {cat.name}

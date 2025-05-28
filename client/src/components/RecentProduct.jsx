@@ -36,7 +36,7 @@ const RecentProduct = () => {
               name={item.name}
               price={item.price}
               productInfo={item.productInfo}
-              featured={item.featured}
+
             />
           ))}
         </div>
