@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { ShopContext } from "../context/ShopContext";
-import { useNavigate } from "react-router-dom";
 import { FiEdit, FiLogOut, FiPlus, FiTrash2, FiHeart } from "react-icons/fi";
 
 const Profile = () => {

@@ -25,7 +25,7 @@ const Navbar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.5 }}
       className="flex justify-between items-center container py-4 px-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl border border-primary/10 dark:border-secondary/20 my-4 mx-auto
-            dark:text-white text-gray-800"
+            dark:text-white text-gray-800 z-40"
     >
       {/* Logo Section */}
       <div className="flex items-end justify-start text-2xl font-bold hover:scale-105 transition-transform duration-200">

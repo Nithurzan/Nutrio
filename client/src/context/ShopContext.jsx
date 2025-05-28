@@ -278,12 +278,14 @@ const ShopContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    if (!token && localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
-      getUserCart(localStorage.getItem("token"));
-      loadOrderData(localStorage.getItem("token"));
-    }
-  }, []);
+  const storedToken = localStorage.getItem("token");
+  if (!token && storedToken) {
+    setToken(storedToken);
+    getUserCart(storedToken);
+    loadOrderData(storedToken);
+    fetchWishlist(storedToken);
+  }
+}, []);
 
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
