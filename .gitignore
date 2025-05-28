@@ -4,3 +4,6 @@ client\node_modules
 client\.vscode
 .vscode
 /server/node_modules
+server\.env
+client\.env
+admin\.env
