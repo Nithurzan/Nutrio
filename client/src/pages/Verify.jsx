@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { ShopContext } from '../context/ShopContext';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
@@ -19,9 +19,11 @@ const Verify = () => {
 
             const response = await axios.post(
                 backendUrl + "/api/order/verifyStripe",
-                { orderId, success },
+                { orderId, success:true },
                 { headers: { token } }
             );
+            console.log("orderId",orderId)
+            console.log("success",success)
 
             if (response.data.success) {
                 setCartItem({});

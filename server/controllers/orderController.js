@@ -4,7 +4,7 @@ import Stripe from "stripe";
 
 //global variables
 const currency = "INR";
-const deliveryCharge = 10;
+const deliveryCharge = 100;
 
 
 //gatway initialization
@@ -114,7 +114,7 @@ const userId = req.body.userId;
 const verifyStripe = async (req, res) => {
   
     const{orderId, success} = req.body;
-    const {userId} = req.body.userId;
+    const userId = req.body.userId;
     
    
   try {

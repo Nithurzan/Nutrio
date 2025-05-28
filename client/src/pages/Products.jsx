@@ -47,7 +47,7 @@ const Products = () => {
     }
     if (category.length > 0) {
   productsCopy = productsCopy.filter((item) => {
-    if (!item.category) return false; // 🚫 Ignore null categories
+    if (!item.category) return false; 
     const catId = typeof item.category === "object"
       ? item.category._id
       : String(item.category);
@@ -56,7 +56,7 @@ const Products = () => {
 }
 
      
-    setFilterProducts(productsCopy);
+    setFilterProducts(productsCopy.reverse());
   };
 
   useEffect(() => {
@@ -185,23 +185,24 @@ const Products = () => {
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12 px-2 sm:px-0">
-                {filterProducts.map((item, index) => (
-                  <div
-                    
-                    className="h-full transition-all duration-300 "
-                  >
-                    <ProductItems
-                      id={item._id}
-                      name={item.name}
-                      image={item.image}
-                      price={item.price}
-                      productInfo={item.productInfo}
-                      featured={item.featured}
-                    />
-                  </div>
-                ))}
-              </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 gap-y-12 px-2 sm:px-0">
+  {filterProducts.map((item) => (
+    <div
+      key={item._id}
+      className="h-full w-full transition-all duration-300"
+    >
+      <ProductItems
+        id={item._id}
+        name={item.name}
+        image={item.image}
+        price={item.price}
+        productInfo={item.productInfo}
+        featured={item.featured}
+      />
+    </div>
+  ))}
+</div>
+
             )}
           </motion.div>
         </div>
