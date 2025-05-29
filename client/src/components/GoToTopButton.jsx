@@ -13,8 +13,25 @@ const GoToTopButton = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const duration = 4000; 
+  const start = window.scrollY;
+  const startTime = performance.now();
+
+  const animateScroll = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+
+    window.scrollTo(0, start * (1 - ease));
+
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
   };
+
+  requestAnimationFrame(animateScroll);
+};
+
 
   return (
     <button
