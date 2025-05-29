@@ -4,7 +4,7 @@ import Stripe from "stripe";
 
 //global variables
 const currency = "INR";
-const deliveryCharge = 100;
+const deliveryCharge = 10;
 
 
 //gatway initialization
@@ -91,7 +91,7 @@ const userId = req.body.userId;
         product_data: {
           name: "Delivery Charge",
         },
-        unit_amount: deliveryCharge,
+        unit_amount: deliveryCharge * 100,
       },
       quantity: 1,
     });

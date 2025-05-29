@@ -172,7 +172,7 @@ const ProductDetails = () => {
               </p>
               <hr className="my-4 w-24 border-primary/30 dark:border-secondary/30" />
               <p
-                className="prose dark:prose-invert"
+                className="dark:text-gray-400"
                 dangerouslySetInnerHTML={{ __html: productData.productInfo }}
               ></p>
             </motion.div>
