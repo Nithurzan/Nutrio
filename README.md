@@ -8,7 +8,7 @@ Nutrio is a full-stack e-commerce web application focused on nutrition and healt
 
 ## ✨ Features
 
-- 🛒 Product listing, search, filtering, and detail view
+- 🛒 Product listing, search, voice search, filtering, and detail view
 - ❤️ Wishlist & Review system
 - 🔐 Secure user authentication (JWT-based)
 - 🧾 Order management & payment via Stripe
