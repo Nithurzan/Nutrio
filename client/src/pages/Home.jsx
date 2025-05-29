@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Hero from "../components/Hero";
-// import Category from "../components/Category";
 import RecentProduct from "../components/RecentProduct";
 import Skeletons, { HomeSkeleton } from "../utilitty/Skeleton";
 import useLoadingTimer from "../utilitty/useLoadingTimer";
@@ -19,7 +18,6 @@ const Home = () => {
   return (
     <div className="container my-20 py-4">
       <Hero />
-      {/* <Category /> */}
       <CategoriesOverview/>
       <RecentProduct />
       <Testimonials />

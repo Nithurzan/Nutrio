@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
-import { assets } from "../assets/asset";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { FiCheckCircle } from "react-icons/fi";
 import Skeletons from "../utilitty/Skeleton";
 import useLoadingTimer from "../utilitty/useLoadingTimer";
 import PaymentMethod from "../components/PaymentMethod";
