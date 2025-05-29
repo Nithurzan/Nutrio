@@ -21,6 +21,7 @@ Nutrio is a full-stack e-commerce web application focused on nutrition and healt
 ## 🗂️ Project Structure
 
 Nutrio/
+
 ├── client/ # React-based frontend for users
 
 ├── server/ # Express backend with MongoDB
@@ -63,73 +64,74 @@ ADMIN_EMAIL=admin_email@example.com
 ADMIN_PASSWORD=admin_password
 STRIPE_SECRET_KEY=your_stripe_secret_key
 
+```
 ### `/clent/.env`
-```env
 VITE_BACKEND_URL=http://localhost:4000
 
+```
+```
 ### `/admin/.env`
-```env
 VITE_BACKEND_URL=http://localhost:4000
 
 ---
 
-#🚀 Getting Started
+# 🚀 Getting Started
 
-## 1. Clone the Repository
+##  1. Clone the Repository
 git clone https://github.com/Nithurzan/Nutrio.git
 cd Nutrio
 
-## 2. Install Dependencies
+##  2. Install Dependencies
 
-###Client
+### Client
 cd client
 npm install
 
-###Server
+### Server
 cd ../server
 npm install
 
-###Admin
+### Admin
 cd ../admin
 npm install
 
+---
 
-##3. Start Development Servers
-```
-###Client
+## Start Development Servers
+
+### Client
 cd client
 npm run dev
 
-###Server
+### Server
 cd ../server
 npm start
 
-###Admin
+### Admin
 cd ../admin
 npm run dev
 
 ---
 
-#🧪 Demo Credentials
+# 🧪 Demo Credentials
 For quick testing, use the following demo credentials:
-```
 
-##🧑‍💼 Admin Login
+## 🧑‍💼 Admin Login
 makefile
 Copy
 Edit
 
 ---
 
-#🌍 Deployment
-##The project is deployed on Vercel
+# 🌍 Deployment
+## The project is deployed on Vercel
 🔗 https://nutrio-tau.vercel.app
 
 ---
 
-#📸 Screenshots
+# 📸 Screenshots
 
 ---
 
-#✨ Developer
+# ✨ Developer
 👨‍💻 Nithurzan Yogalingam
