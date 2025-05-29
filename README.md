@@ -22,8 +22,11 @@ Nutrio is a full-stack e-commerce web application focused on nutrition and healt
 
 Nutrio/
 ├── client/ # React-based frontend for users
+
 ├── server/ # Express backend with MongoDB
+
 ├── admin/ # React-based admin dashboard
+
 └── README.md
 
 
@@ -61,12 +64,14 @@ ADMIN_PASSWORD=admin_password
 STRIPE_SECRET_KEY=your_stripe_secret_key
 
 ### `/clent/.env`
+```env
 VITE_BACKEND_URL=http://localhost:4000
 
 ### `/admin/.env`
+```env
 VITE_BACKEND_URL=http://localhost:4000
 
-
+---
 
 #🚀 Getting Started
 
@@ -90,7 +95,7 @@ npm install
 
 
 ##3. Start Development Servers
-
+```
 ###Client
 cd client
 npm run dev
@@ -103,23 +108,28 @@ npm start
 cd ../admin
 npm run dev
 
+---
 
 #🧪 Demo Credentials
 For quick testing, use the following demo credentials:
+```
 
 ##🧑‍💼 Admin Login
 makefile
 Copy
 Edit
 
+---
 
 #🌍 Deployment
 ##The project is deployed on Vercel
 🔗 https://nutrio-tau.vercel.app
 
+---
 
 #📸 Screenshots
 
+---
 
 #✨ Developer
 👨‍💻 Nithurzan Yogalingam
