@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const blogs = [
   {
@@ -34,8 +35,27 @@ const blogs = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const BlogHighlights = () => (
-  <section className="my-20">
+  <motion.section
+    className="my-20"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
     <div className="text-center mb-10">
       <h2 className="text-3xl font-bold text-primary dark:text-secondary mb-2">
         Blog Highlights
@@ -44,11 +64,17 @@ const BlogHighlights = () => (
         Tips, guides, and inspiration from our experts
       </p>
     </div>
+
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {blogs.map((blog) => (
-        <div
+      {blogs.map((blog, i) => (
+        <motion.div
           key={blog.id}
           className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col hover:shadow-2xl transition-all duration-300"
+          custom={i}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
         >
           <img
             src={blog.image}
@@ -73,10 +99,10 @@ const BlogHighlights = () => (
               <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
-  </section>
+  </motion.section>
 );
 
 export default BlogHighlights;

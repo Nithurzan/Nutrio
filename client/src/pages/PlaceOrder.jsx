@@ -118,7 +118,7 @@ const PlaceOrder = () => {
           className="flex flex-col md:flex-row justify-between gap-8 pt-5 sm:pt-14 min-h-[80vh] dark:bg-gray-900 transition-colors duration-300"
         >
           {/* Left side - Delivery Info Card */}
-          <div className="flex flex-col gap-4 w-full md:w-[50%] lg:w-[480px] bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-8">
+          <div className="flex flex-col gap-4 w-full px-4 md:w-[50%] lg:w-[480px] bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl border border-primary/20 dark:border-secondary/20 p-8">
             <div className="text-xl sm:text-2xl my-3">
               <Title text1={"DELIVERY"} text2={"INFORMATION"} animate={false} />
             </div>

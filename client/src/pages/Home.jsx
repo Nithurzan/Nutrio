@@ -5,9 +5,9 @@ import RecentProduct from "../components/RecentProduct";
 import Skeletons, { HomeSkeleton } from "../utilitty/Skeleton";
 import useLoadingTimer from "../utilitty/useLoadingTimer";
 import Testimonials from "../components/Testimonials";
-import Policy from "../components/Policy";
 import BlogHighlights from "../components/BlogHighlights";
 import CategoriesOverview from "../components/CategoriesOverview";
+import OurPolicy from "../components/OurPolicy";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ const Home = () => {
       <CategoriesOverview/>
       <RecentProduct />
       <Testimonials />
-      <Policy />
+      <OurPolicy />
       <BlogHighlights />
     </div>
   );

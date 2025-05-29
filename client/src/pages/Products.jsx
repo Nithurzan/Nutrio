@@ -14,6 +14,7 @@ const Products = () => {
   const [sortType, setSortType] = useState("relevent");
   const [filterProducts, setFilterProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {

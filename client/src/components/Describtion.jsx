@@ -185,7 +185,7 @@ const Describtion = ({ productDescribtion, productId }) => {
                 {reviews.map((review, index) => (
                   <div
                     key={review._id || index}
-                    className="border-b pb-4 mb-4 last:border-b-0 last:mb-0 bg-white/80 dark:bg-gray-900/80 rounded-xl shadow transition hover:shadow-lg"
+                    className="border-b py-4 px-4 mb-4 last:border-b-0 last:mb-0 bg-white/80 dark:bg-gray-900/80 rounded-xl shadow transition hover:shadow-lg"
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <span className="flex gap-0.5">

@@ -1,35 +1,80 @@
 import React from "react";
-import { OurPolicies } from "../assets/ourPolicyData";
+import { FaShippingFast, FaLeaf, FaShieldAlt, FaHeadset } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const OurPolicy = () => {
-  return (
-    <section className="bg-gradient-to-br from-primary/5 via-white to-secondary/10 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-      <div className="container flex flex-col sm:flex-row justify-around gap-10 sm:gap-4 text-center">
-        {OurPolicies.map((item) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: item.id * 0.3 }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800 px-6 py-8 flex-1 mx-auto max-w-xs transition-all duration-300 hover:shadow-xl"
-          >
-            {/* Circular Wrapper for Image */}
-            <div className="w-20 h-20 m-auto mb-5 bg-primary/10 dark:bg-secondary/30 border-2 border-primary/20 dark:border-secondary/40 rounded-full flex items-center justify-center shadow-[0_0_22px_0_rgba(0,0,0,0.10)] dark:shadow-[0_0_22px_0_#81C784]">
-              <img src={item.img} alt={item.Titile} className="w-10 h-10" />
-            </div>
-            <p className="font-semibold font-poppins text-base sm:text-lg text-gray-800 dark:text-secondary mb-2">
-              {item.Titile}
-            </p>
-            <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
-              {item.Subtitle}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
+const policies = [
+  {
+    icon: (
+      <FaShippingFast className="text-primary dark:text-secondary w-8 h-8" />
+    ),
+    title: "Fast Delivery",
+    desc: "Get your order delivered quickly and on time, every time.",
+  },
+  {
+    icon: <FaLeaf className="text-primary dark:text-secondary w-8 h-8" />,
+    title: "Fresh & Organic",
+    desc: "We guarantee fresh, organic, and high-quality products.",
+  },
+  {
+    icon: <FaShieldAlt className="text-primary dark:text-secondary w-8 h-8" />,
+    title: "Secure Payment",
+    desc: "Your payment information is processed securely.",
+  },
+  {
+    icon: <FaHeadset className="text-primary dark:text-secondary w-8 h-8" />,
+    title: "24/7 Support",
+    desc: "Our support team is here to help you anytime.",
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
 };
+
+const OurPolicy = () => (
+  <motion.section
+    className="my-20"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+  >
+    <div className="text-center mb-10">
+      <h2 className="text-3xl font-bold text-primary dark:text-secondary mb-2">
+        Our Policy
+      </h2>
+      <p className="text-gray-500 dark:text-gray-400">Why shop with us?</p>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      {policies.map((policy, idx) => (
+        <motion.div
+          key={idx}
+          className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition-all duration-300"
+          custom={idx}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="mb-4">{policy.icon}</div>
+          <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100 mb-2">
+            {policy.title}
+          </h3>
+          <p className="text-gray-500 dark:text-gray-400">{policy.desc}</p>
+        </motion.div>
+      ))}
+    </div>
+  </motion.section>
+);
 
 export default OurPolicy;

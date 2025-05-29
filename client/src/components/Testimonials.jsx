@@ -1,5 +1,6 @@
 import React from "react";
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -22,8 +23,23 @@ const testimonials = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6 },
+  }),
+};
+
 const Testimonials = () => (
-  <section className="my-20">
+  <motion.section
+    className="my-20"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+  >
     <div className="text-center mb-10">
       <h2 className="text-3xl font-bold text-primary dark:text-secondary mb-2 flex items-center justify-center gap-2">
         <FaQuoteLeft className="inline-block text-2xl text-primary dark:text-secondary" />
@@ -33,11 +49,17 @@ const Testimonials = () => (
         Real feedback from real people
       </p>
     </div>
+
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {testimonials.map((t, idx) => (
-        <div
+        <motion.div
           key={idx}
           className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center border border-gray-100 dark:border-gray-800 hover:shadow-2xl transition-all duration-300"
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          custom={idx}
+          viewport={{ once: true }}
         >
           <img
             src={t.avatar}
@@ -55,10 +77,10 @@ const Testimonials = () => (
           <div className="font-semibold text-primary dark:text-secondary">
             {t.name}
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
-  </section>
+  </motion.section>
 );
 
 export default Testimonials;
