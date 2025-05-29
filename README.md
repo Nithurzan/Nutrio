@@ -117,9 +117,8 @@ npm run dev
 For quick testing, use the following demo credentials:
 
 ## 🧑‍💼 Admin Login
-makefile
-Copy
-Edit
+Email: user@Nutrio.com  
+Password: 12345678
 
 ---
 
