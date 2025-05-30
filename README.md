@@ -1,6 +1,6 @@
 # 🥦 Nutrio – Nutrition & Health E-Commerce Platform
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-nutrio-frontend?style=flat&logo=vercel)](https://nutrio-amber.vercel.app/)  [![Live Demo](https://img.shields.io/badge/Live%20Demo-nutrio-adminpannel?style=flat&logo=vercel)](https://nutrio-adminpanel.vercel.app/)
+[![Live Frontend Demo](https://img.shields.io/badge/Live%20Demo-nutrio-frontend?style=flat&logo=vercel)](https://nutrio-amber.vercel.app/)  [![Live Admin Demo](https://img.shields.io/badge/Live%20Demo-nutrio?style=flat&logo=vercel)](https://nutrio-adminpanel.vercel.app/)
 
 Nutrio is a full-stack e-commerce web application focused on nutrition and health. It enables users to browse, search, and purchase supplements and health products. The platform supports user features like reviews, wishlist, and orders, along with a powerful admin panel to manage products and users.
 
