@@ -91,7 +91,7 @@ const userId = req.body.userId;
         product_data: {
           name: "Delivery Charge",
         },
-        unit_amount: deliveryCharge * 100,
+        unit_amount: deliveryCharge * 10,
       },
       quantity: 1,
     });

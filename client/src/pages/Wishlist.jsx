@@ -7,7 +7,7 @@ import Skeletons from "../utilitty/Skeleton";
 import useLoadingTimer from "../utilitty/useLoadingTimer";
 
 const Wishlist = () => {
-  const { backendUrl, token, navigate, fetchWishlist, wishlist } =
+  const { backendUrl, token, currency, navigate, fetchWishlist, wishlist } =
     useContext(ShopContext);
   const [loading, setLoading] = useState(true);
 
@@ -68,7 +68,7 @@ const Wishlist = () => {
                     {item.name}
                   </div>
                   <div className="text-primary text-base font-bold mt-2">
-                    {item.price}
+                    {currency}{item.price}
                   </div>
                 </div>
               </Link>
