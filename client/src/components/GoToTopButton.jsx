@@ -13,7 +13,7 @@ const GoToTopButton = () => {
   }, []);
 
   const scrollToTop = () => {
-  const duration = 4000; 
+  const duration = 3000; 
   const start = window.scrollY;
   const startTime = performance.now();
 
